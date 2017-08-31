@@ -54,6 +54,43 @@ public class BoxCollider extends GameObject {
                 this.right() >= left &&
                 this.left() <= right;
     }
+    public boolean intersectsCircle(CircleCollider other){
+        Vector2D M = new Vector2D(0,0);
+        if(other.getPosition().y <= top()){
+            if (other.getPosition().x <= left()){
+                M.set(left(),top());
+            }else {
+                if(other.getPosition().x >= right()){
+                    M.set(other.getPosition().x,top());
+                }else {
+                    M.set(right(),top());
+                }
+            }
+        }else {
+            if(other.getPosition().y <= bottom()){
+                if (other.getPosition().x <= left()){
+                    M.set(left(),other.getPosition().y);
+                }else {
+                    if(other.getPosition().x >= right()){
+                        M.set(other.getPosition());
+                    }else {
+                        M.set(right(),other.getPosition().y);
+                    }
+                }
+            }else {
+                if (other.getPosition().x <= left()){
+                    M.set(left(),bottom());
+                }else {
+                    if(other.getPosition().x >= right()){
+                        M.set(other.getPosition().x,bottom());
+                    }else {
+                        M.set(right(),bottom());
+                    }
+                }
+            }
+        }
+        return true;
+    }
     @Override
     public String toString() {
         return "BoxCollider{" +
