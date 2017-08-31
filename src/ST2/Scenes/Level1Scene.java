@@ -5,6 +5,7 @@ import Bases.GameObject;
 import ST2.InputManager.InputManager;
 import ST2.Player.Player;
 import ST2.Settings.Settings;
+import ST2.platform.Platform;
 
 public class Level1Scene extends Scene {
     Player player = new Player();
@@ -16,6 +17,19 @@ public class Level1Scene extends Scene {
     public void init() {
         addBackground();
         addPlayer();
+        addPlatform();
+    }
+
+    float startX = 30;
+    float startY = 700;
+
+    private void addPlatform() {
+        for (int i = 0; i < 20; i++){
+            Platform platform = new Platform();
+            platform.getPosition().set(startX, startY);
+            GameObject.add(platform);
+            startX += 22;
+        }
     }
 
     private void addBackground() {

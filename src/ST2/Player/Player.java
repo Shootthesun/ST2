@@ -4,15 +4,19 @@ import Bases.Constraints;
 import Bases.GameObject;
 import Bases.Vector2D;
 import Bases.physics.BoxCollider;
+import Bases.physics.Physics;
 import Bases.physics.PhysicsBody;
 import Bases.renderers.ImageRenderer;
 import ST2.InputManager.InputManager;
+
+import ST2.platform.Platform;
 import tklibs.SpriteUtils;
 
-import java.awt.image.BufferedImage;
+
 
 public class Player extends GameObject implements PhysicsBody {
     private static final float SPEED = 3;
+    private final float GRAVITY = 0.4f;
     private InputManager inputManager;
     private BoxCollider boxCollider;
     private Vector2D velocity;
@@ -29,26 +33,54 @@ public class Player extends GameObject implements PhysicsBody {
     public void run(Vector2D parentPosition) {
         super.run(parentPosition);
         move();
+        updateVerticalPhysics();
+        updateHorizontalPhysics();
+
+        position.addUp(velocity);
+
+    }
+
+    private void updateVerticalPhysics() {
+        Vector2D checkPosition = screenPosition.add(0, velocity.x);
+        Platform platform = Physics.collideWith(checkPosition, boxCollider.getWidth(), boxCollider.getHeight(), Platform.class);
+        if (platform != null){
+            velocity.y = 0;
+        }
+    }
+
+
+    private void updateHorizontalPhysics() {
+        Vector2D checkPosition = screenPosition.add(velocity.x, 0);
+        Platform platform = Physics.collideWith(checkPosition, boxCollider.getWidth(), boxCollider.getHeight(), Platform.class);
+        if (platform != null){
+            velocity.x = 0;
+        }
     }
 
     private void move() {
-        velocity.set(0, 0);
+        velocity.y += GRAVITY;
+        velocity.x = 0;
 
-        if (inputManager.upPressed)
-            velocity.y -= SPEED;
-        if (inputManager.downPressed)
-            velocity.y += SPEED;
+        //jump
+        if (inputManager.upPressed) {
+            if (Physics.collideWith(screenPosition.add(0, 1),
+                    boxCollider.getWidth(),
+                    boxCollider.getHeight(),
+                    Platform.class) != null) {
+                velocity.y -= SPEED;
+            }
+        }
+
+        //move horizontal
         if (inputManager.leftPressed)
             velocity.x -= SPEED;
         if (inputManager.rightPressed)
             velocity.x += SPEED;
 
+        //constraints
         if (contraints != null) {
             contraints.make(position);
         }
-
-        position.addUp(velocity);
-
     }
 
     @Override

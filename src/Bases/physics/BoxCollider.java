@@ -1,6 +1,7 @@
 package Bases.physics;
 
 import Bases.GameObject;
+import Bases.Vector2D;
 
 /**
  * Created by huynq on 8/12/17.
@@ -43,6 +44,16 @@ public class BoxCollider extends GameObject {
                 this.left() <= other.right();
     }
 
+    public boolean intersects(Vector2D center, float width, float height){
+        float top = center.y - height / 2;
+        float bottom = center.y + height / 2;
+        float left = center.x - width / 2;
+        float right = center.x + width / 2;
+        return this.bottom() >= top &&
+                this.top() <= bottom &&
+                this.right() >= left &&
+                this.left() <= right;
+    }
     @Override
     public String toString() {
         return "BoxCollider{" +
@@ -50,5 +61,13 @@ public class BoxCollider extends GameObject {
                 ", height=" + height +
                 ", screenPosition=" + screenPosition +
                 '}';
+    }
+
+    public float getWidth() {
+        return width;
+    }
+
+    public float getHeight() {
+        return height;
     }
 }
