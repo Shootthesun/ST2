@@ -32,20 +32,32 @@ public class Player extends GameObject implements PhysicsBody {
     @Override
     public void run(Vector2D parentPosition) {
         super.run(parentPosition);
-        move();
-        updateVerticalPhysics();
-        updateHorizontalPhysics();
-
+        updatePhysics();
         position.addUp(velocity);
 
+    }
+
+    private void updatePhysics() {
+        velocity.y += GRAVITY;
+        velocity.x = 0;
+
+        move();
+        updateVerticalPhysics();
+//        updateHorizontalPhysics();
     }
 
     private void updateVerticalPhysics() {
         Vector2D checkPosition = screenPosition.add(0, velocity.x);
         Platform platform = Physics.collideWith(checkPosition, boxCollider.getWidth(), boxCollider.getHeight(), Platform.class);
         if (platform != null){
+            while (Physics.collideWith(screenPosition.add(0, Math.signum(velocity.y)), boxCollider.getWidth(), boxCollider.getHeight(), Platform.class) == null){
+                position.add(0, Math.signum(velocity.y));
+                screenPosition.add(0, Math.signum(velocity.y));
+            }
             velocity.y = 0;
         }
+        this.position.y += velocity.y;
+        this.screenPosition.y += velocity.y;
     }
 
 
@@ -58,9 +70,6 @@ public class Player extends GameObject implements PhysicsBody {
     }
 
     private void move() {
-        velocity.y += GRAVITY;
-        velocity.x = 0;
-
         //jump
         if (inputManager.upPressed) {
             if (Physics.collideWith(screenPosition.add(0, 1),
