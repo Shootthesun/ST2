@@ -10,7 +10,7 @@ import ST2.Settings.Settings;
 
 public class Background extends GameObject implements PhysicsBody {
     private ImageRenderer imageRenderer;
-    private final float SPEED = 1;
+    private final float SPEED = -1;
     private final float imageHeight, imageWidth;
     private BoxCollider boxCollider;
 
@@ -19,7 +19,7 @@ public class Background extends GameObject implements PhysicsBody {
         this.imageRenderer = new ImageRenderer(
                 SpriteUtils.loadImage("assets/image/Background/Background.png")
         );
-        this.imageRenderer.getAnchor().set(1, 1);
+        this.imageRenderer.getAnchor().set(0.2f, 1);
         this.position.set(0, Settings.instance.getGamePlayHeight());
         this.imageHeight = imageRenderer.image.getHeight();
         this.imageWidth = imageRenderer.image.getWidth();

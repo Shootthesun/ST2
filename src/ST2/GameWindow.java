@@ -91,9 +91,17 @@ public class GameWindow extends Frame{
         GameObject.runAllActions();
     }
 
-    private void render() {
+    public void update(Graphics g) {
         backBufferGraphics.drawImage(blackBackground, 0, 0, null);
         GameObject.renderAll(backBufferGraphics);
-        getGraphics().drawImage(backBufferImage, 0, 0, null);
+        g.drawImage(backBufferImage, 0, 0, null);
     }
+    private void render(){
+        repaint();
+    }
+//    private void render() {
+//        backBufferGraphics.drawImage(blackBackground, 0, 0, null);
+//        GameObject.renderAll(backBufferGraphics);
+//        getGraphics().drawImage(backBufferImage, 0, 0, null);
+//    }
 }
