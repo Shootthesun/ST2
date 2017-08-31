@@ -21,7 +21,7 @@ public class Level1Scene extends Scene {
     }
 
     float startX = 30;
-    float startY = 700;
+    float startY = 590;
 
     private void addPlatform() {
         for (int i = 0; i < 20; i++){
@@ -50,7 +50,7 @@ public class Level1Scene extends Scene {
         );
         player.getPosition().set(
                 settings.getGamePlayWidth() / 4,
-                settings.getGamePlayHeight() * 4 / 5);
+                570);
 
         GameObject.add(player);
     }
