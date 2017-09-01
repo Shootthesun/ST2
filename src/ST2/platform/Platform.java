@@ -11,7 +11,7 @@ public class Platform extends GameObject implements PhysicsBody {
     public Platform(){
         super();
         this.renderer = ImageRenderer.create("assets/image/platform/yellow_square.jpg");
-        this.boxCollider = new BoxCollider(40, 40);
+        this.boxCollider = new BoxCollider(32, 32);
         this.children.add(boxCollider);
     }
 

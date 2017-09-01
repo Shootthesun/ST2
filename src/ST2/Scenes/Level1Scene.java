@@ -5,6 +5,7 @@ import Bases.GameObject;
 import ST2.InputManager.InputManager;
 import ST2.Player.Player;
 import ST2.Settings.Settings;
+import ST2.maps.Map;
 import ST2.platform.Platform;
 
 public class Level1Scene extends Scene {
@@ -16,20 +17,13 @@ public class Level1Scene extends Scene {
     @Override
     public void init() {
         addBackground();
-        addPlayer();
         addPlatform();
+        addPlayer();
     }
 
-    float startX = 30;
-    float startY = 590;
-
     private void addPlatform() {
-        for (int i = 0; i < 20; i++){
-            Platform platform = new Platform();
-            platform.getPosition().set(startX, startY);
-            GameObject.add(platform);
-            startX += 22;
-        }
+        Map map = Map.load("assets/image/platform/ST2..json");
+        map.generate();
     }
 
     private void addBackground() {
