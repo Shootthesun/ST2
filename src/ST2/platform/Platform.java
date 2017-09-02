@@ -12,7 +12,7 @@ public class Platform extends GameObject implements PhysicsBody {
 
     public Platform(){
         super();
-        this.boxCollider = new BoxCollider(32, 32);
+        this.boxCollider = new BoxCollider(128, 128);
         this.children.add(boxCollider);
     }
 
@@ -26,7 +26,7 @@ public class Platform extends GameObject implements PhysicsBody {
         switch (platformType){
             case 1: platform.renderer = new ImageRenderer(SpriteUtils.loadImage("assets/image/platform/2.png"));
             break;
-            case 5: platform.renderer = new ImageRenderer(SpriteUtils.loadImage("assets/image/platform/5.png"));
+            case 17: platform.renderer = new ImageRenderer(SpriteUtils.loadImage("assets/image/platform/15.png"));
             break;
         }
         return platform;
