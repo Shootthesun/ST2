@@ -5,6 +5,7 @@ import Bases.physics.Physics;
 import Bases.physics.PhysicsBody;
 import Bases.pools.GameObjectPool;
 import Bases.renderers.Renderer;
+import ST2.ViewCam;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -52,10 +53,10 @@ public class GameObject {
         newGameObjects.clear();
     }
 
-    public static void renderAll(Graphics2D g2d) {
+    public static void renderAll(Graphics2D g2d, ViewCam viewCam) {
         for (GameObject gameObject : gameObjects) {
             if (gameObject.isActive && !gameObject.isRenewing)
-                gameObject.render(g2d);
+                gameObject.render(g2d, viewCam);
         }
     }
 
@@ -68,14 +69,14 @@ public class GameObject {
         }
     }
 
-    public void render(Graphics2D g2d) {
+    public void render(Graphics2D g2d, ViewCam viewCam) {
         if (renderer != null) {
-            renderer.render(g2d, screenPosition);
+            renderer.render(g2d, viewCam.translate(this.screenPosition));
         }
 
         for (GameObject child: children) {
             if (child.isActive)
-                child.render(g2d);
+                child.render(g2d, viewCam);
         }
     }
 

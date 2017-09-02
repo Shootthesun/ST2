@@ -2,6 +2,7 @@ package ST2;
 
 import Bases.GameObject;
 import ST2.InputManager.InputManager;
+import ST2.Player.Player;
 import ST2.Scenes.Level1Scene;
 import ST2.Scenes.SceneManager;
 import ST2.Settings.Settings;
@@ -19,6 +20,9 @@ public class GameWindow extends Frame{
     private BufferedImage backBufferImage, blackBackground;
     private Graphics2D backBufferGraphics;
     InputManager inputManager = InputManager.instance;
+    private ViewCam viewCam;
+    private Level1Scene level1Scene;
+
 
     public GameWindow() {
         pack();
@@ -65,10 +69,16 @@ public class GameWindow extends Frame{
             }
         });
         Settings.instance.setWindowInsets(this.getInsets());
+        this.viewCam = new ViewCam();
+        viewCam.getFollowObj().set(
+                -Settings.instance.getGamePlayWidth() / 2,
+                -Settings.instance.getGamePlayHeight()/ 2);
+
     }
 
     private void setupLevel() {
-        SceneManager.changeScene(new Level1Scene());
+        level1Scene = new Level1Scene();
+        SceneManager.changeScene(level1Scene);
     }
 
     public void loop() {
@@ -89,12 +99,14 @@ public class GameWindow extends Frame{
     private void run() {
         GameObject.runAll();
         GameObject.runAllActions();
+        viewCam.follow(level1Scene.getPlayer());
     }
 
-    public void update(Graphics g) {
+    public void update(Graphics g2d) {
         backBufferGraphics.drawImage(blackBackground, 0, 0, null);
-        GameObject.renderAll(backBufferGraphics);
-        g.drawImage(backBufferImage, 0, 0, null);
+        GameObject.renderAll(backBufferGraphics, viewCam);
+        g2d.drawImage(backBufferImage, 0, 0, null);
+
     }
     private void render(){
         repaint();

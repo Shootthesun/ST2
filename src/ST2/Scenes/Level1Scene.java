@@ -5,6 +5,7 @@ import Bases.GameObject;
 import ST2.InputManager.InputManager;
 import ST2.Player.Player;
 import ST2.Settings.Settings;
+import ST2.ViewCam;
 import ST2.maps.Map;
 import ST2.platform.Platform;
 
@@ -12,7 +13,6 @@ public class Level1Scene extends Scene {
     Player player = new Player();
     Settings settings = Settings.instance;
     Background background = new Background();
-
 
     @Override
     public void init() {
@@ -22,7 +22,7 @@ public class Level1Scene extends Scene {
     }
 
     private void addPlatform() {
-        Map map = Map.load("assets/image/platform/ST2..json");
+        Map map = Map.load("assets/image/platform/ST2.json");
         map.generate();
     }
 
@@ -44,8 +44,12 @@ public class Level1Scene extends Scene {
         );
         player.getPosition().set(
                 settings.getGamePlayWidth() / 4,
-                570);
+                200);
 
         GameObject.add(player);
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }

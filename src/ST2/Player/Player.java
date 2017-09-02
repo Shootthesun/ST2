@@ -26,20 +26,36 @@ public class Player extends GameObject implements PhysicsBody {
         super();
         this.boxCollider = new BoxCollider(20,20);
         renderer = new ImageRenderer(SpriteUtils.loadImage("assets/image/Player/Player.png"));
-        velocity = Vector2D.ZERO;
+        velocity = new Vector2D(200, 0);
         Gravity =0.5f;
     }
     @Override
     public void run(Vector2D parentPosition) {
         super.run(parentPosition);
         updatePhysics();
+        this.position.addUp(velocity);
     }
     private void updatePhysics(){
         velocity.y += Gravity;
         velocity.x = 0;
         jump();
         updateVerticalPhysics();
+        move();
+//        updateHorizontalPhysics();
 
+//        if (contraints != null) {
+//            contraints.make(position);
+//        }
+    }
+
+    private void move() {
+        if (InputManager.instance.leftPressed){
+            velocity.x = -5;
+        }
+
+        if (InputManager.instance.rightPressed){
+            velocity.x = 5;
+        }
     }
 
     private void jump() {
@@ -93,13 +109,13 @@ public class Player extends GameObject implements PhysicsBody {
 //    }
 //
 //
-//    private void updateHorizontalPhysics() {
-//        Vector2D checkPosition = screenPosition.add(velocity.x, 0);
-//        Platform platform = Physics.collideWith(checkPosition, boxCollider.getWidth(), boxCollider.getHeight(), Platform.class);
-//        if (platform != null){
-//            velocity.x = 0;
-//        }
-//    }
+    private void updateHorizontalPhysics() {
+        Vector2D checkPosition = screenPosition.add(velocity.x, 0);
+        Platform platform = Physics.collideWith(checkPosition, boxCollider.getWidth(), boxCollider.getHeight(), Platform.class);
+        if (platform != null){
+            velocity.x = 0;
+        }
+    }
 //
 //    private void move() {
 //        if (inputManager.upPressed) {

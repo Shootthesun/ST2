@@ -24,8 +24,8 @@ public class Layer {
             for (int tileX = 0; tileX < width; tileX++){
                 int mapData = data.get(tileY * width + tileX);
                 if (mapData != 0){
-                    Platform platform = new Platform();
-                    platform.getPosition().set(tileX * 32, tileY * 32);
+                    Platform platform = Platform.create(mapData);
+                    platform.getPosition().set(tileX * 32, tileY * 32 + 32);
                     GameObject.add(platform);
                 }
             }
