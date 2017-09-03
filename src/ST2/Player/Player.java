@@ -1,6 +1,7 @@
 package ST2.Player;
 
 import Bases.Constraints;
+import Bases.FrameCounter;
 import Bases.GameObject;
 import Bases.Vector2D;
 import Bases.physics.BoxCollider;
@@ -21,6 +22,9 @@ public class Player extends GameObject implements PhysicsBody {
     private Constraints contraints;
     private InputManager inputManager;
     private float Gravity;
+    private FrameCounter leftLock;
+    private int i;
+    private Boolean left;
 
     public Player() {
         super();
@@ -28,6 +32,8 @@ public class Player extends GameObject implements PhysicsBody {
         renderer = new ImageRenderer(SpriteUtils.loadImage("assets/image/Player/Player.png"));
         velocity = new Vector2D(200, 0);
         Gravity =0.5f;
+        left = false;
+        leftLock = new FrameCounter(50);
     }
     @Override
     public void run(Vector2D parentPosition) {
@@ -49,19 +55,34 @@ public class Player extends GameObject implements PhysicsBody {
     }
 
     private void move() {
-        if (InputManager.instance.leftPressed){
-            velocity.x = -5;
+        if (InputManager.instance.leftPressed && !leftLock.run()){
+            left = true;
+            leftLock.reset();
         }
-
-        if (InputManager.instance.rightPressed){
+        else {
             velocity.x = 5;
         }
+        if(left){
+            velocity.x = -5;
+            i++;
+            if(i>30) {
+//                leftLock.reset();
+                left = false;
+                i =0;
+            }
+        }
+
+
+
+//        if (InputManager.instance.rightPressed){
+//            velocity.x = 5;
+//        }
     }
 
     private void jump() {
         if(InputManager.instance.upPressed){
             if(Physics.collideWith(screenPosition.add(0,Math.signum(velocity.y)),boxCollider.getWidth(),boxCollider.getHeight(),Platform.class)!=null)
-                velocity.y = -17f;
+                velocity.y = -10f;
         }
     }
 

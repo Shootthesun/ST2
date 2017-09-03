@@ -103,12 +103,13 @@ public class GameWindow extends Frame{
     }
 
     public void update(Graphics g2d) {
-        backBufferGraphics.drawImage(blackBackground, 0, 0, null);
-        GameObject.renderAll(backBufferGraphics, viewCam);
+
         g2d.drawImage(backBufferImage, 0, 0, null);
 
     }
     private void render(){
+        backBufferGraphics.drawImage(blackBackground, 0, 0, null);
+        GameObject.renderAll(backBufferGraphics, viewCam);
         repaint();
     }
 //    private void render() {
