@@ -33,7 +33,7 @@ public class Player extends GameObject implements PhysicsBody {
         velocity = new Vector2D(200, 0);
         Gravity =0.5f;
         left = false;
-        leftLock = new FrameCounter(50);
+        leftLock = new FrameCounter(20);
     }
     @Override
     public void run(Vector2D parentPosition) {
@@ -55,28 +55,27 @@ public class Player extends GameObject implements PhysicsBody {
     }
 
     private void move() {
-        if (InputManager.instance.leftPressed && !leftLock.run()){
+        if(InputManager.instance.leftPressed && !left){
             left = true;
             leftLock.reset();
         }
-        else {
-            velocity.x = 5;
-        }
         if(left){
             velocity.x = -5;
-            i++;
-            if(i>30) {
-//                leftLock.reset();
+        }
+        else {
+            velocity.x = +5;
+        }
+        unlockmove();
+
+
+    }
+
+    private void unlockmove() {
+        if(left){
+            if(leftLock.run()){
                 left = false;
-                i =0;
             }
         }
-
-
-
-//        if (InputManager.instance.rightPressed){
-//            velocity.x = 5;
-//        }
     }
 
     private void jump() {
