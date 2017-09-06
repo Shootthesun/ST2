@@ -10,9 +10,9 @@ import ST2.maps.Map;
 import ST2.platform.Platform;
 
 public class Level1Scene extends Scene {
-    Player player = new Player();
+    Player player;
     Settings settings = Settings.instance;
-    Background background = new Background();
+    Background background;
 
     @Override
     public void init() {
@@ -27,6 +27,7 @@ public class Level1Scene extends Scene {
     }
 
     private void addBackground() {
+        background = new Background();
         background.getPosition().set(
                 settings.getGamePlayWidth(),
                 settings.getWindowHeight()
@@ -35,6 +36,7 @@ public class Level1Scene extends Scene {
     }
 
     private void addPlayer() {
+        player = new Player();
         player.setInputManager(InputManager.instance);
         player.setContraints(new Constraints(
                 settings.getWindowInsets().top,
@@ -47,6 +49,7 @@ public class Level1Scene extends Scene {
                 200);
 
         GameObject.add(player);
+
     }
 
     public Player getPlayer() {

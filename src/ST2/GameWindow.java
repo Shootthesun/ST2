@@ -3,7 +3,9 @@ package ST2;
 import Bases.GameObject;
 import ST2.InputManager.InputManager;
 import ST2.Player.Player;
+import ST2.Scenes.GameMenuScene;
 import ST2.Scenes.Level1Scene;
+import ST2.Scenes.Scene;
 import ST2.Scenes.SceneManager;
 import ST2.Settings.Settings;
 
@@ -20,8 +22,10 @@ public class GameWindow extends Frame{
     private BufferedImage backBufferImage, blackBackground;
     private Graphics2D backBufferGraphics;
     InputManager inputManager = InputManager.instance;
-    private ViewCam viewCam;
-    private Level1Scene level1Scene;
+    private GameMenuScene gameMenuScene;
+    private boolean gameStart;
+
+
 
 
     public GameWindow() {
@@ -29,6 +33,7 @@ public class GameWindow extends Frame{
         setupGameLoop();
         setupWindow();
         setupLevel();
+
     }
 
     private void setupGameLoop() {
@@ -69,16 +74,15 @@ public class GameWindow extends Frame{
             }
         });
         Settings.instance.setWindowInsets(this.getInsets());
-        this.viewCam = new ViewCam();
-        viewCam.getFollowObj().set(
+        ViewCam.instance.getFollowObj().set(
                 -Settings.instance.getGamePlayWidth() / 2,
                 -Settings.instance.getGamePlayHeight()/ 2);
-
     }
 
     private void setupLevel() {
-        level1Scene = new Level1Scene();
-        SceneManager.changeScene(level1Scene);
+        gameMenuScene = new GameMenuScene();
+        SceneManager.changeScene(gameMenuScene);
+
     }
 
     public void loop() {
@@ -99,7 +103,21 @@ public class GameWindow extends Frame{
     private void run() {
         GameObject.runAll();
         GameObject.runAllActions();
-        viewCam.follow(level1Scene.getPlayer());
+        if(inputManager.enter){
+            Level1Scene level1Scene = new Level1Scene();
+            SceneManager.changeScene(level1Scene);
+        }
+        ViewCam.instance.follow(Player.getInstance());
+
+        //ViewCam.instance.follow(Player.getInstance());
+//
+//        if(gameStart){
+//            ViewCam.instance.follow(level1Scene.getPlayer());
+//
+//        }
+//        else {
+//            ViewCam.instance.follow(gameMenuScene.getMenu());
+//        }
     }
 
     public void update(Graphics g2d) {
@@ -109,7 +127,7 @@ public class GameWindow extends Frame{
     }
     private void render(){
         backBufferGraphics.drawImage(blackBackground, 0, 0, null);
-        GameObject.renderAll(backBufferGraphics, viewCam);
+        GameObject.renderAll(backBufferGraphics, ViewCam.instance);
         repaint();
     }
 //    private void render() {

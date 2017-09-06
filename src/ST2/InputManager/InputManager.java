@@ -9,6 +9,8 @@ public class InputManager {
     public boolean downPressed;
     public boolean leftPressed;
     public boolean rightPressed;
+    public boolean enter;
+
 
     public static final InputManager instance = new InputManager();
 
@@ -30,6 +32,9 @@ public class InputManager {
             case VK_DOWN:
                 downPressed = true;
                 break;
+            case VK_ENTER:
+                enter = true;
+                break;
         }
     }
 
@@ -46,6 +51,9 @@ public class InputManager {
                 break;
             case VK_DOWN:
                 downPressed = false;
+                break;
+            case VK_ENTER:
+                enter = false;
                 break;
         }
     }

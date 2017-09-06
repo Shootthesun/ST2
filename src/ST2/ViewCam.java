@@ -10,14 +10,17 @@ import java.awt.geom.AffineTransform;
 public class ViewCam {
     private Vector2D position;
     private Vector2D followObj;
+    public static final ViewCam instance = new ViewCam();
 
-    public ViewCam(){
+
+    private ViewCam(){
         position = Vector2D.ZERO;
         followObj = Vector2D.ZERO;
     }
 
     public void follow(GameObject gameObject){
-        position = gameObject.getPosition().add(followObj);
+        if (gameObject != null)
+            position = gameObject.getPosition().add(followObj);
     }
 
     public Vector2D translate(Vector2D screenPosition){
@@ -26,5 +29,8 @@ public class ViewCam {
 
     public Vector2D getFollowObj() {
         return followObj;
+    }
+    public boolean IsActive(){
+        return false;
     }
 }

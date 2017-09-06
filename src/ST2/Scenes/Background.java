@@ -31,10 +31,10 @@ public class Background extends GameObject implements PhysicsBody {
     @Override
     public void run(Vector2D parentPosition) {
         super.run(parentPosition);
-        position.x += SPEED;
-        if (position.y > imageWidth) {
-            position.y = imageWidth;
-        }
+//        position.x += SPEED;
+//        if (position.y > imageWidth) {
+//            position.y = imageWidth;
+//        }
     }
 
     @Override

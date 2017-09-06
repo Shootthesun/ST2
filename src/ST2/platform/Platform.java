@@ -12,7 +12,7 @@ public class Platform extends GameObject implements PhysicsBody {
 
     public Platform(){
         super();
-        this.boxCollider = new BoxCollider(128, 128);
+        this.boxCollider = new BoxCollider(96, 96);
         this.children.add(boxCollider);
     }
 

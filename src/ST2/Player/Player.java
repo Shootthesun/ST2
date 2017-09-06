@@ -23,8 +23,14 @@ public class Player extends GameObject implements PhysicsBody {
     private InputManager inputManager;
     private float Gravity;
     private FrameCounter leftLock;
-    private int i;
     private Boolean left;
+    private float SPEED;
+
+    private static Player instance;
+
+    public static Player getInstance() {
+        return instance;
+    }
 
     public Player() {
         super();
@@ -34,6 +40,9 @@ public class Player extends GameObject implements PhysicsBody {
         Gravity =0.5f;
         left = false;
         leftLock = new FrameCounter(20);
+        SPEED = 5;
+
+        instance = this;
     }
     @Override
     public void run(Vector2D parentPosition) {
@@ -60,10 +69,10 @@ public class Player extends GameObject implements PhysicsBody {
             leftLock.reset();
         }
         if(left){
-            velocity.x = -5;
+            velocity.x = -SPEED;
         }
         else {
-            velocity.x = +5;
+            velocity.x = +SPEED;
         }
         unlockmove();
 
@@ -164,4 +173,6 @@ public class Player extends GameObject implements PhysicsBody {
     public void setContraints(Constraints contraints) {
         this.contraints = contraints;
     }
+
+
 }
