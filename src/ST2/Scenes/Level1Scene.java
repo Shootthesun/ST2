@@ -22,7 +22,7 @@ public class Level1Scene extends Scene {
     }
 
     private void addPlatform() {
-        Map map = Map.load("assets/image/platform/test.json");
+        Map map = Map.load("assets/image/platform/testMap.json");
         map.generate();
     }
 
