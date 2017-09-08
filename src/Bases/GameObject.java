@@ -5,6 +5,7 @@ import Bases.physics.Physics;
 import Bases.physics.PhysicsBody;
 import Bases.pools.GameObjectPool;
 import Bases.renderers.Renderer;
+import ST2.Enemy.Enemy;
 import ST2.ViewCam;
 
 import java.awt.*;
@@ -74,6 +75,9 @@ public class GameObject {
     }
 
     public void render(Graphics2D g2d, ViewCam viewCam) {
+//        if (this instanceof Enemy){
+//            System.out.println(renderer);
+//        }
         if (renderer != null) {
             renderer.render(g2d, viewCam.translate(this.screenPosition));
         }

@@ -8,6 +8,7 @@ import Bases.physics.BoxCollider;
 import Bases.physics.Physics;
 import Bases.physics.PhysicsBody;
 import Bases.renderers.ImageRenderer;
+import ST2.Enemy.Enemy;
 import ST2.InputManager.InputManager;
 
 import ST2.platform.Platform;
@@ -40,7 +41,7 @@ public class Player extends GameObject implements PhysicsBody {
         Gravity =0.5f;
         left = false;
         leftLock = new FrameCounter(20);
-        SPEED = 5;
+        SPEED = 2;
 
         instance = this;
     }
@@ -48,14 +49,14 @@ public class Player extends GameObject implements PhysicsBody {
     public void run(Vector2D parentPosition) {
         super.run(parentPosition);
         updatePhysics();
+        hitEnemy();
     }
 
     private void updatePhysics(){
         velocity.y += Gravity;
-        velocity.x = 0;
+        velocity.x =  SPEED;
         jump();
         updateVerticalPhysics();
-        move();
         updateHorizontalPhysics();
 
 //        if (contraints != null) {
@@ -63,34 +64,11 @@ public class Player extends GameObject implements PhysicsBody {
 //        }
     }
 
-    private void move() {
-        if(InputManager.instance.leftPressed && !left){
-            left = true;
-            leftLock.reset();
-        }
-        if(left){
-            velocity.x = -SPEED;
-        }
-        else {
-            velocity.x = +SPEED;
-        }
-        unlockmove();
-
-
-    }
-
-    private void unlockmove() {
-        if(left){
-            if(leftLock.run()){
-                left = false;
-            }
-        }
-    }
 
     private void jump() {
         if(InputManager.instance.upPressed){
             if(Physics.collideWith(screenPosition.add(0,Math.signum(velocity.y)),boxCollider.getWidth(),boxCollider.getHeight(),Platform.class)!=null)
-                velocity.y = -20f;
+                velocity.y = -15f;
         }
     }
 
@@ -122,6 +100,13 @@ public class Player extends GameObject implements PhysicsBody {
         }
         this.position.x += velocity.x;
         this.screenPosition.x += velocity.x;
+    }
+    private void hitEnemy() {
+        Enemy enemy = Physics.collideWith(this.screenPosition,boxCollider.getWidth(),boxCollider.getHeight(), Enemy.class);
+        if(enemy != null){
+            enemy.setActive(false);
+            this.isActive = false;
+        }
     }
 
 

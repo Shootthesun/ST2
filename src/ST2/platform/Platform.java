@@ -1,6 +1,7 @@
 package ST2.platform;
 
 import Bases.GameObject;
+import Bases.Vector2D;
 import Bases.physics.BoxCollider;
 import Bases.physics.PhysicsBody;
 import Bases.renderers.ImageRenderer;
@@ -21,6 +22,11 @@ public class Platform extends GameObject implements PhysicsBody {
         return boxCollider;
     }
 
+    @Override
+    public void run(Vector2D parentPosition) {
+        super.run(parentPosition);
+    }
+
     public static Platform create(int platformType){
         Platform platform = new Platform();
         switch (platformType){
@@ -28,8 +34,8 @@ public class Platform extends GameObject implements PhysicsBody {
             break;
             case 2: platform.renderer = new ImageRenderer(SpriteUtils.loadImage("assets/image/platform/tile2.png"));
                 break;
-            case 13: platform.renderer = new ImageRenderer(SpriteUtils.loadImage("assets/image/platform/blueSquare.png"));
-                break;
+//            case 13: platform.renderer = new ImageRenderer(SpriteUtils.loadImage("assets/image/platform/blueSquare.png"));
+//                break;
             case 14: platform.renderer = new ImageRenderer(SpriteUtils.loadImage("assets/image/platform/wave.png"));
             break;
         }
