@@ -27,6 +27,8 @@ public class GameObject {
     private static Vector<GameObject> gameObjects = new Vector<>();
     private static Vector<GameObject> newGameObjects = new Vector<>();
 
+    private static boolean unpause;
+
     public GameObject() {
         children = new ArrayList<>();
         actions = new ArrayList<>();
@@ -34,23 +36,25 @@ public class GameObject {
         newActions = new ArrayList<>();
         screenPosition = new Vector2D();
         isActive = true;
+        unpause = true;
     }
 
     public static void runAll() {
-
-        for (GameObject gameObject : gameObjects) {
-            if (gameObject.isActive)
-                gameObject.run(new Vector2D(0, 0)); // TODO: Optimize
-        }
-
-        for (GameObject newGameObject : newGameObjects) {
-            if (newGameObject instanceof PhysicsBody) {
-                Physics.add((PhysicsBody)newGameObject);
+        if(unpause){
+            for (GameObject gameObject : gameObjects) {
+                if (gameObject.isActive)
+                    gameObject.run(new Vector2D(0, 0)); // TODO: Optimize
             }
-        }
 
-        gameObjects.addAll(newGameObjects);
-        newGameObjects.clear();
+            for (GameObject newGameObject : newGameObjects) {
+                if (newGameObject instanceof PhysicsBody) {
+                    Physics.add((PhysicsBody)newGameObject);
+                }
+            }
+
+            gameObjects.addAll(newGameObjects);
+            newGameObjects.clear();
+        }
     }
 
     public static void renderAll(Graphics2D g2d, ViewCam viewCam) {
@@ -149,4 +153,11 @@ public class GameObject {
         return this;
     }
 
+    public static boolean isUnpause() {
+        return unpause;
+    }
+
+    public static void setUnpause(boolean unpause) {
+        GameObject.unpause = unpause;
+    }
 }

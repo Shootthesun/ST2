@@ -16,7 +16,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 
-public class GameWindow extends Frame{
+public class GameWindow extends Frame implements InputManager.InputListener{
 
     private long lastTimeUpdate, currentTime;
     private BufferedImage backBufferImage, blackBackground;
@@ -29,6 +29,7 @@ public class GameWindow extends Frame{
 
 
     public GameWindow() {
+        inputManager.setInputListener(this);
         pack();
         setupGameLoop();
         setupWindow();
@@ -103,22 +104,11 @@ public class GameWindow extends Frame{
     private void run() {
         GameObject.runAll();
         GameObject.runAllActions();
-        if(inputManager.enter){
-            Level1Scene level1Scene = new Level1Scene();
-            SceneManager.changeScene(level1Scene);
+        if (gameStart) {
+            ViewCam.instance.follow(Player.getInstance());
         }
-        ViewCam.instance.follow(Player.getInstance());
-
-        //ViewCam.instance.follow(Player.getInstance());
-//
-//        if(gameStart){
-//            ViewCam.instance.follow(level1Scene.getPlayer());
-//
-//        }
-//        else {
-//            ViewCam.instance.follow(gameMenuScene.getMenu());
-//        }
     }
+
 
     public void update(Graphics g2d) {
 
@@ -129,6 +119,27 @@ public class GameWindow extends Frame{
         backBufferGraphics.drawImage(blackBackground, 0, 0, null);
         GameObject.renderAll(backBufferGraphics, ViewCam.instance);
         repaint();
+    }
+
+    @Override
+    public void onKeyPressed(int keyCode) {
+
+    }
+
+    @Override
+    public void onKeyRealeased(int keyCode) {
+        if(!gameStart){
+            if(keyCode == 10){
+                Level1Scene level1Scene = new Level1Scene();
+                SceneManager.changeScene(level1Scene);
+                gameStart = true;
+            }
+        }
+        if(gameStart){
+            if(keyCode == 27 ){
+                GameObject.setUnpause(!GameObject.isUnpause());
+            }
+        }
     }
 //    private void render() {
 //        backBufferGraphics.drawImage(blackBackground, 0, 0, null);
