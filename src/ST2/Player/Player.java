@@ -34,7 +34,7 @@ public class Player extends GameObject implements PhysicsBody {
 
     public Player() {
         super();
-        this.boxCollider = new BoxCollider(20,20);
+        this.boxCollider = new BoxCollider(1,1);
         renderer = new ImageRenderer(SpriteUtils.loadImage("assets/image/Player/Player.png"));
         velocity = new Vector2D(200, 0);
         Gravity =0.5f;
@@ -90,7 +90,7 @@ public class Player extends GameObject implements PhysicsBody {
     private void jump() {
         if(InputManager.instance.upPressed){
             if(Physics.collideWith(screenPosition.add(0,Math.signum(velocity.y)),boxCollider.getWidth(),boxCollider.getHeight(),Platform.class)!=null)
-                velocity.y = -10f;
+                velocity.y = -20f;
         }
     }
 

@@ -4,7 +4,8 @@ import java.awt.event.KeyEvent;
 
 import static java.awt.event.KeyEvent.*;
 
-public class InputManager {
+public class InputManager{
+
     public boolean upPressed;
     public boolean downPressed;
     public boolean leftPressed;
@@ -17,6 +18,27 @@ public class InputManager {
     private InputManager() {
 
     }
+
+    public void setInputListener(InputListener inputListener) {
+        this.inputListener = inputListener;
+    }
+
+    public interface InputListener {
+        void onKeyPressed(int keyCode);
+        void onKeyRealeased(int keyCode);
+    }
+
+    private InputListener inputListener = new InputListener() {
+        @Override
+        public void onKeyPressed(int keyCode) {
+
+        }
+
+        @Override
+        public void onKeyRealeased(int keyCode) {
+
+        }
+    };
 
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
@@ -36,6 +58,8 @@ public class InputManager {
                 enter = true;
                 break;
         }
+        if (e != null)
+            inputListener.onKeyPressed(e.getKeyCode());
     }
 
     public void keyReleased(KeyEvent e) {
@@ -56,6 +80,7 @@ public class InputManager {
                 enter = false;
                 break;
         }
+        if (e != null)
+            inputListener.onKeyRealeased(e.getKeyCode());
     }
-
 }
