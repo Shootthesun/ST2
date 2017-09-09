@@ -2,18 +2,15 @@ package ST2.Enemy;
 
 import Bases.GameObject;
 import Bases.Vector2D;
-import Bases.actions.Action;
-import Bases.actions.SequenceAction;
-import Bases.actions.WaitAction;
 import Bases.physics.BoxCollider;
 import Bases.physics.PhysicsBody;
-import ST2.Player.Player;
 
 public class EnemyBullet extends GameObject implements PhysicsBody {
     private BoxCollider boxCollider;
     private Vector2D velocity;
     private Enemy enemy;
     private float SPEED;
+    private static final int damage = 1;
 
     public  EnemyBullet(){
         super();
@@ -40,5 +37,9 @@ public class EnemyBullet extends GameObject implements PhysicsBody {
     @Override
     public BoxCollider getBoxCollider() {
         return boxCollider;
+    }
+
+    public static int getDamage() {
+        return damage;
     }
 }

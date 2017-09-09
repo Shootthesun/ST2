@@ -4,7 +4,6 @@ package ST2.Enemy;
 import Bases.GameObject;
 import Bases.Vector2D;
 import Bases.actions.Action;
-import Bases.actions.ActionRepeatForever;
 import Bases.actions.SequenceAction;
 import Bases.actions.WaitAction;
 import Bases.physics.BoxCollider;
@@ -15,13 +14,10 @@ import Bases.renderers.ImageRenderer;
 import ST2.Player.Player;
 import tklibs.SpriteUtils;
 
-/**
- * Created by huynq on 8/9/17.
- */
 public class Enemy extends GameObject implements PhysicsBody {
     private static final float SPEED = 10;
     private BoxCollider boxCollider;
-    private int damage;
+    private final static int damage = 2;
     private float distance;
     private boolean unlockAction;
 
@@ -31,9 +27,10 @@ public class Enemy extends GameObject implements PhysicsBody {
                 SpriteUtils.loadImage("assets/image/platform/blueSquare.png")
         );
 
-        this.boxCollider = new BoxCollider(20, 20);
+        this.boxCollider = new BoxCollider(100, 100);
         this.children.add(boxCollider);
         unlockAction = true;
+
     }
 
     private void configAction() {
@@ -44,7 +41,7 @@ public class Enemy extends GameObject implements PhysicsBody {
                 enemyBullet.getPosition().set(owner.getPosition());
                 enemyBullet.setRenderer(ImageRenderer.create("assets/image/bullets/cyan.png"));
                 enemyBullet.getVelocity().set(
-                        direction(owner.getPosition(),Player.getInstance().getPosition())
+                        direction(owner.getPosition(), Player.getInstance().getPosition())
                 );
 
                 return true;
@@ -83,4 +80,7 @@ public class Enemy extends GameObject implements PhysicsBody {
         return this.boxCollider;
     }
 
+    public static int getDamage() {
+        return damage;
+    }
 }

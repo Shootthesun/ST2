@@ -15,6 +15,7 @@ public class InputManager{
 
 
     public static final InputManager instance = new InputManager();
+    public boolean xPressed;
 
     private InputManager() {
 
@@ -61,6 +62,9 @@ public class InputManager{
             case VK_ESCAPE:
                 esc = true;
                 break;
+            case VK_X:
+                xPressed = true;
+                break;
         }
         if (e != null)
             inputListener.onKeyPressed(e.getKeyCode());
@@ -85,6 +89,9 @@ public class InputManager{
                 break;
             case VK_ESCAPE:
                 esc = false;
+                break;
+            case VK_X:
+                xPressed = false;
                 break;
         }
         if (e != null)
