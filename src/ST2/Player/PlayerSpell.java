@@ -8,6 +8,8 @@ import Bases.physics.Physics;
 import Bases.physics.PhysicsBody;
 import Bases.renderers.Animation;
 import ST2.Enemy.Enemy;
+import ST2.Settings.Settings;
+import ST2.platform.Platform;
 import tklibs.SpriteUtils;
 
 import static java.lang.Math.*;
@@ -43,21 +45,33 @@ public class PlayerSpell extends GameObject implements PhysicsBody {
         super.run(parentPosition);
         position.addUp((float) (SPEED*cos(typeBullet*p)), (float) (SPEED*sin(typeBullet*p)));
         hitEnemy();
-        deActive();
+        setDeactive();
+        hitPlatform();
     }
 
-    private void deActive() {
-        if(this.screenPosition.y < 0){
-            this.isActive = false;
-        }
-
-    }
+//    private void deActive() {
+//        if(this.screenPosition.y < 0){
+//            this.isActive = false;
+//        }
+//
+//    }
 
     private void hitEnemy() {
         Enemy enemy = Physics.collideWith(this.boxCollider, Enemy.class);
         if(enemy != null){
             enemy.setActive(false);
             this.isActive = false;
+        }
+    }
+
+    private void setDeactive(){
+        if (position.x < 0) this.isActive = false;
+    }
+
+    private void hitPlatform(){
+        Platform platform = Physics.collideWith(this.boxCollider, Platform.class);
+        if (platform != null){
+            this.setActive(false);
         }
     }
 

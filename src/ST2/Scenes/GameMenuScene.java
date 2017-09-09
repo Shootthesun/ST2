@@ -14,38 +14,19 @@ import java.awt.image.BufferedImage;
 
 public class GameMenuScene extends Scene{
     Settings settings = Settings.instance;
-    Background background = new Background();
-    Menu menu = new Menu();
+    Menu menu;
 
     @Override
     public void init() {
-        addBackground();
-        addPlatform();
         addMenu();
-        //ViewCam.instance.follow(this.getMenu());
     }
 
     private void addMenu() {
+        menu = new Menu();
         menu.setInputManager(InputManager.instance);
-        menu.getPosition().set(400,200);
+        menu.getPosition().set(0, 768 / 2);
         GameObject.add(menu);
-
-
     }
-
-    private void addPlatform() {
-        Map map = Map.load("assets/image/platform/maprelease.json");
-        map.generate();
-    }
-
-    private void addBackground() {
-        background.getPosition().set(
-                settings.getGamePlayWidth(),
-                settings.getWindowHeight()
-        );
-        GameObject.add(background);
-    }
-
 
     public Menu getMenu() {
         return menu;

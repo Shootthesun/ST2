@@ -13,6 +13,7 @@ import ST2.Enemy.Enemy;
 import ST2.Enemy.EnemyBullet;
 import ST2.InputManager.InputManager;
 import ST2.platform.Platform;
+import ST2.platform.SeaPlatform;
 import tklibs.SpriteUtils;
 
 
@@ -61,9 +62,7 @@ public class Player extends GameObject implements PhysicsBody {
         if(this.getHP()<=0){
             this.isActive = false;
         }
-        if(this.getPosition().y > 600){
-            this.isActive = false;
-        }
+        drowningSea();
         shoot();
     }
 
@@ -147,6 +146,7 @@ public class Player extends GameObject implements PhysicsBody {
         this.position.x += velocity.x;
         this.screenPosition.x += velocity.x;
     }
+
     private void hitEnemy() {
         Enemy enemy = Physics.collideWith(this.screenPosition,boxCollider.getWidth(),boxCollider.getHeight(), Enemy.class);
         if(enemy != null){
@@ -160,6 +160,13 @@ public class Player extends GameObject implements PhysicsBody {
         if(bullet != null){
             bullet.setActive(false);
             this.setHP(this.getHP() - bullet.getDamage());
+        }
+    }
+
+    private void drowningSea(){
+        SeaPlatform seaPlatform = Physics.collideWith(this.screenPosition, boxCollider.getWidth(), boxCollider.getHeight(), SeaPlatform.class);
+        if (seaPlatform != null){
+            this.isActive = false;
         }
     }
 
