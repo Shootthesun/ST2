@@ -9,35 +9,43 @@ import tklibs.SpriteUtils;
 import java.awt.*;
 
 public class PlayerAnimator implements Renderer {
-    private Animation jump = new Animation(
+    private Animation jump = new Animation(8,false,false,
+            SpriteUtils.loadImage("assets/image/Player/Jump/20170909_194951-1.png"),
+            SpriteUtils.loadImage("assets/image/Player/Jump/20170909_210114-1.png"),
+            SpriteUtils.loadImage("assets/image/Player/Jump/20170909_204802-1.png"),
+            SpriteUtils.loadImage("assets/image/Player/Jump/20170909_204802-1.png"),
+            SpriteUtils.loadImage("assets/image/Player/Jump/20170909_204802-1.png"),
+            SpriteUtils.loadImage("assets/image/Player/Jump/20170909_204802-1.png")
+//            SpriteUtils.loadImage("assets/image/Player/Jump/20170909_220738-1")
+
+
+
     );
-    private Animation rightAnimation = new Animation(
-            SpriteUtils.loadImage("assets/images/players/right/0.png"),
-            SpriteUtils.loadImage("assets/images/players/right/1.png"),
-            SpriteUtils.loadImage("assets/images/players/right/2.png"),
-            SpriteUtils.loadImage("assets/images/players/right/3.png"),
-            SpriteUtils.loadImage("assets/images/players/right/4.png"),
-            SpriteUtils.loadImage("assets/images/players/right/5.png")
-    );
-    private Animation straightAnimation = new Animation(
-            SpriteUtils.loadImage("assets/images/players/straight/0.png"),
-            SpriteUtils.loadImage("assets/images/players/straight/1.png"),
-            SpriteUtils.loadImage("assets/images/players/straight/2.png"),
-            SpriteUtils.loadImage("assets/images/players/straight/3.png"),
-            SpriteUtils.loadImage("assets/images/players/straight/4.png"),
-            SpriteUtils.loadImage("assets/images/players/straight/5.png"),
-            SpriteUtils.loadImage("assets/images/players/straight/6.png")
+    private Animation fall = new Animation(8,false,false,
+//            SpriteUtils.loadImage("assets/image/Player/Jump/20170909_220738-1"),
+            SpriteUtils.loadImage("assets/image/Player/Jump/20170909_210126-1.png"),
+            SpriteUtils.loadImage("assets/image/Player/Jump/20170909_210126-1.png"),
+            SpriteUtils.loadImage("assets/image/Player/Jump/20170909_210126-1.png"),
+            SpriteUtils.loadImage("assets/image/Player/Jump/20170909_210126-1.png"),
+            SpriteUtils.loadImage("assets/image/Player/Jump/20170909_205644.png"),
+            SpriteUtils.loadImage("assets/image/Player/Jump/20170909_210138.png"));
+    private Animation straightAnimation = new Animation(3,false,false,
+            SpriteUtils.loadImage("assets/image/Player/Run/1.png"),
+            SpriteUtils.loadImage("assets/image/Player/Run/2.png"),
+            SpriteUtils.loadImage("assets/image/Player/Run/5.png")
     );
     private Animation currentAnimation = straightAnimation;
+
     public void Update(Player player){
+        player = Player.getInstance();
         Vector2D velocity = player.getVelocity();
-        if(velocity.x < 0){
+        if(velocity.y < 0){
             currentAnimation = jump;
         }
-        if(velocity.x > 0){
-            currentAnimation = rightAnimation;
+        if(velocity.y > 0){
+            currentAnimation =fall;
         }
-        if(velocity.x == 0){
+        if(velocity.y == 0){
             currentAnimation = straightAnimation;
         }
     }

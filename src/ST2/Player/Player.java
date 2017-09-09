@@ -45,6 +45,8 @@ public class Player extends GameObject implements PhysicsBody {
     private ArrayList<Integer> comboList = new ArrayList<>();
     private boolean unlockMove = true;
     private boolean isjumping;
+    private PlayerAnimator animator;
+    private float SPEED2;
 
     public static Player getInstance() {
         return instance;
@@ -52,8 +54,9 @@ public class Player extends GameObject implements PhysicsBody {
 
     public Player() {
         super();
-        this.boxCollider = new BoxCollider(30,20);
-        renderer = new ImageRenderer(SpriteUtils.loadImage("assets/image/Player/Player.png"));
+        this.boxCollider = new BoxCollider(40,80);
+        animator = new PlayerAnimator();
+        renderer = animator;
         velocity = new Vector2D(200, 0);
         Gravity =0.8f;
         left = false;
@@ -85,6 +88,7 @@ public class Player extends GameObject implements PhysicsBody {
         else {
             typeBullet = 0;
         }
+        animator.Update(this);
     }
 
     private void hitSpecialObject() {
@@ -98,6 +102,7 @@ public class Player extends GameObject implements PhysicsBody {
                         stateMachine.load(comboList);
 //                        this.screenPosition = specialPool.getScreenPosition();
                         lockMove();
+                        SPEED2 = 1;
                         nextPosition = specialPool.getNextPosition();
                     }
                     else {
@@ -105,6 +110,7 @@ public class Player extends GameObject implements PhysicsBody {
                             stateMachine.setComboFailed();
                             if (!stateMachine.isComboFailed()) {
                                 nextPosition = specialPool.getNextPosition();
+                                SPEED2 = 1.5f;
                             }
                             else {
                                 unlockMove();
@@ -136,7 +142,7 @@ public class Player extends GameObject implements PhysicsBody {
     }
 
     private void moveToNextPoint(Vector2D nextPosition) {
-        velocity = nextPosition.subtract(screenPosition).normalize().multiply(SPEED);
+        velocity = nextPosition.subtract(screenPosition).normalize().multiply(SPEED*SPEED2);
     }
 
     private void lockMove() {
