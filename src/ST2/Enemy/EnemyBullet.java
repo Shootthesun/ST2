@@ -28,7 +28,7 @@ public class EnemyBullet extends GameObject implements PhysicsBody {
         super.run(parentPosition);
         setDeactive();
         move();
-        hitPlatform();
+//        hitPlatform();
     }
 
     private void move() {

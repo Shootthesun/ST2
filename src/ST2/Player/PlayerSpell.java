@@ -46,15 +46,8 @@ public class PlayerSpell extends GameObject implements PhysicsBody {
         position.addUp((float) (SPEED*cos(typeBullet*p)), (float) (SPEED*sin(typeBullet*p)));
         hitEnemy();
         setDeactive();
-        hitPlatform();
+//        hitPlatform();
     }
-
-//    private void deActive() {
-//        if(this.screenPosition.y < 0){
-//            this.isActive = false;
-//        }
-//
-//    }
 
     private void hitEnemy() {
         Enemy enemy = Physics.collideWith(this.boxCollider, Enemy.class);

@@ -44,6 +44,7 @@ public class Player extends GameObject implements PhysicsBody {
     private Vector2D nextPosition = Vector2D.ZERO;
     private ArrayList<Integer> comboList = new ArrayList<>();
     private boolean unlockMove = true;
+    private boolean isjumping;
 
     public static Player getInstance() {
         return instance;
@@ -54,14 +55,15 @@ public class Player extends GameObject implements PhysicsBody {
         this.boxCollider = new BoxCollider(30,20);
         renderer = new ImageRenderer(SpriteUtils.loadImage("assets/image/Player/Player.png"));
         velocity = new Vector2D(200, 0);
-        Gravity =0.5f;
+        Gravity =0.8f;
         left = false;
         leftLock = new FrameCounter(20);
-        SPEED = 4;
+        SPEED = 6;
         HP = 10;
         unlockMove = true;
         coolDownCounter = new FrameCounter(20);
         typeBullet = 2;
+        isjumping = true;
 
         instance = this;
     }
@@ -77,6 +79,12 @@ public class Player extends GameObject implements PhysicsBody {
         }
         drowningSea();
         shoot();
+        if(isjumping){
+            typeBullet = 0.25f;
+        }
+        else {
+            typeBullet = 0;
+        }
     }
 
     private void hitSpecialObject() {
@@ -88,22 +96,26 @@ public class Player extends GameObject implements PhysicsBody {
                         createRandomCombo(1);
                         stateMachine = new StateMachine();
                         stateMachine.load(comboList);
-                        this.screenPosition = specialPool.getScreenPosition();
+//                        this.screenPosition = specialPool.getScreenPosition();
                         lockMove();
                         nextPosition = specialPool.getNextPosition();
                     }
                     else {
                         if (i == 1) {
                             stateMachine.setComboFailed();
-                            if (!stateMachine.isComboFailed())
+                            if (!stateMachine.isComboFailed()) {
                                 nextPosition = specialPool.getNextPosition();
+                            }
+                            else {
+                                unlockMove();
+                            }
                         }
                         else nextPosition = specialPool.getNextPosition();
                     }
                 }
                 else {
                     stateMachine = null;
-                    this.screenPosition = specialPool.getScreenPosition();
+//                    this.screenPosition = specialPool.getScreenPosition();
                     velocity = new Vector2D(SPEED, Gravity);
                     nextPosition = Vector2D.ZERO;
                     unlockMove();
@@ -166,18 +178,16 @@ public class Player extends GameObject implements PhysicsBody {
 
 
     private void jump() {
-        if(InputManager.instance.upPressed){
-            if(Physics.collideWith(screenPosition.add(0,Math.signum(velocity.y)),boxCollider.getWidth(),boxCollider.getHeight(),Platform.class)!=null)
-                velocity.y = -12f;
-            typeBullet = 0.15f;
-        }
-        else {
-            typeBullet = 0;
+        if(InputManager.instance.upPressed && !isjumping){
+            if(Physics.collideWith(screenPosition.add(0,Math.signum(velocity.y)),boxCollider.getWidth(),boxCollider.getHeight(),Platform.class)!=null) {
+                velocity.y = -18f;
+                isjumping = true;
+            }
         }
         if(InputManager.instance.downPressed){
-            Gravity = 1;
+            Gravity = 1.5f;
         }else {
-            Gravity = 0.5f;
+            Gravity = 0.8f;
         }
     }
 
@@ -190,6 +200,7 @@ public class Player extends GameObject implements PhysicsBody {
                 position.addUp(0, dy);
                 screenPosition.addUp(0,dy);
             }
+            isjumping = false;
             velocity.y = 0;
         }
         this.position.y += velocity.y;
