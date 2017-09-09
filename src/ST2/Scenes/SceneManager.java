@@ -1,5 +1,7 @@
 package ST2.Scenes;
 
+import ST2.ViewCam;
+
 /**
  * Created by huynq on 8/23/17.
  */
@@ -20,8 +22,10 @@ public class SceneManager {
         if (nextScene != null) {
             // Change scene REQUESTED
 
-            if (currentScene != null)
+            if (currentScene != null) {
+                ViewCam.instance.reset();
                 currentScene.destroy();
+            }
 
             nextScene.init();
 

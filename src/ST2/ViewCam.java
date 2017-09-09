@@ -33,4 +33,9 @@ public class ViewCam {
     public boolean IsActive(){
         return false;
     }
+
+    public void reset() {
+        position = Vector2D.ZERO;
+        followObj = Vector2D.ZERO;
+    }
 }

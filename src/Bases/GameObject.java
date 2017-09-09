@@ -5,6 +5,7 @@ import Bases.physics.Physics;
 import Bases.physics.PhysicsBody;
 import Bases.pools.GameObjectPool;
 import Bases.renderers.Renderer;
+import Bases.specialPool.SpecialPool;
 import ST2.Enemy.Enemy;
 import ST2.ViewCam;
 
@@ -118,6 +119,7 @@ public class GameObject {
     public static void clearAll() {
         gameObjects.clear();
         newGameObjects.clear();
+        SpecialPool.specialPools.clear();
         Physics.clearAll();
         GameObjectPool.clearAll();
     }

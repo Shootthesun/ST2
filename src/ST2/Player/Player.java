@@ -13,6 +13,8 @@ import Bases.specialPool.SpecialPool;
 import ST2.Enemy.Enemy;
 import ST2.Enemy.EnemyBullet;
 import ST2.InputManager.InputManager;
+import ST2.Scenes.GameOverScene;
+import ST2.Scenes.SceneManager;
 import ST2.SpecialObject.StateMachine;
 import ST2.ViewCam;
 import ST2.platform.Platform;
@@ -89,6 +91,7 @@ public class Player extends GameObject implements PhysicsBody {
             typeBullet = 0;
         }
         animator.Update(this);
+        gameOver();
     }
 
     private void hitSpecialObject() {
@@ -249,6 +252,17 @@ public class Player extends GameObject implements PhysicsBody {
         if (seaPlatform != null){
             this.isActive = false;
         }
+    }
+
+    private void gameOver(){
+        if (!this.isActive){
+            SceneManager.changeScene(new GameOverScene());
+            Player.clearInstance();
+        }
+    }
+
+    private static void clearInstance() {
+        instance = null;
     }
 
 
