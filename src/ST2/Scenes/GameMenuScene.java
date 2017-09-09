@@ -24,7 +24,7 @@ public class GameMenuScene extends Scene{
     private void addMenu() {
         menu = new Menu();
         menu.setInputManager(InputManager.instance);
-        menu.getPosition().set(0, 768 / 2);
+        menu.getPosition().set(0, 0);
         GameObject.add(menu);
     }
 
