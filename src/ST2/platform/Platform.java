@@ -30,11 +30,9 @@ public class Platform extends GameObject implements PhysicsBody {
     public static Platform create(int platformType){
         Platform platform = new Platform();
         switch (platformType){
-            case 4: platform.renderer = new ImageRenderer(SpriteUtils.loadImage("assets/image/platform/blueSquare.png"));
-            break;
-            case 2: platform.renderer = new ImageRenderer(SpriteUtils.loadImage( "assets/image/ground.png"));
+            case 1: platform.renderer = new ImageRenderer(SpriteUtils.loadImage( "assets/image/ground.png"));
                 break;
-            case 1: platform.renderer = new ImageRenderer(SpriteUtils.loadImage("assets/image/tile2.png"));
+            case 2: platform.renderer = new ImageRenderer(SpriteUtils.loadImage("assets/image/tile2.png"));
             break;
         }
         return platform;

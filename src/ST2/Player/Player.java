@@ -14,10 +14,12 @@ import ST2.Enemy.Enemy;
 import ST2.Enemy.EnemyBullet;
 import ST2.InputManager.InputManager;
 import ST2.SpecialObject.StateMachine;
+import ST2.ViewCam;
 import ST2.platform.Platform;
 import ST2.platform.SeaPlatform;
 import tklibs.SpriteUtils;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -40,7 +42,7 @@ public class Player extends GameObject implements PhysicsBody {
     private boolean spellLock;
     private FrameCounter coolDownCounter;
     private Vector2D nextPosition = Vector2D.ZERO;
-    private ArrayList<Integer> comboList;
+    private ArrayList<Integer> comboList = new ArrayList<>();
     private boolean unlockMove = true;
 
     public static Player getInstance() {
@@ -232,6 +234,14 @@ public class Player extends GameObject implements PhysicsBody {
         }
     }
 
+
+    @Override
+    public void render(Graphics2D g2d, ViewCam viewCam) {
+        super.render(g2d, viewCam);
+        if(stateMachine != null){
+            stateMachine.render(g2d);
+        }
+    }
 
     @Override
     public BoxCollider getBoxCollider() {

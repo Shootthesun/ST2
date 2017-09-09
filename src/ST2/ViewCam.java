@@ -24,7 +24,7 @@ public class ViewCam {
     }
 
     public Vector2D translate(Vector2D screenPosition){
-        return screenPosition.subtract(this.position.x, 0);
+        return screenPosition.subtract(this.position.x, position.y);
     }
 
     public Vector2D getFollowObj() {

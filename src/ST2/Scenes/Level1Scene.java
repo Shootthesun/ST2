@@ -16,13 +16,13 @@ public class Level1Scene extends Scene {
 
     @Override
     public void init() {
-        addBackground();
+//        addBackground();
         addPlatform();
         addPlayer();
     }
 
     private void addPlatform() {
-        Map map = Map.load("assets/image/platform/maprelease.json");
+        Map map = Map.load("assets/map1.json");
         map.generate();
     }
 

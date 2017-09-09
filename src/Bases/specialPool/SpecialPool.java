@@ -17,7 +17,7 @@ public class SpecialPool extends GameObject implements PhysicsBody {
     public int type;
 
     public SpecialPool() {
-        boxCollider = new BoxCollider(1,1);
+        boxCollider = new BoxCollider(32,32);
         children.add(boxCollider);
         type = -1;
     }
