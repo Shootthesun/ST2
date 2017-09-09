@@ -5,6 +5,7 @@ import Bases.renderers.Animation;
 import Bases.renderers.ImageRenderer;
 import ST2.Enemy.Enemy;
 import ST2.platform.Platform;
+import ST2.platform.SeaPlatform;
 import tklibs.SpriteUtils;
 
 import java.util.List;
@@ -29,17 +30,19 @@ public class Layer {
                 int mapData = data.get(tileY * width + tileX);
                 if (mapData != 0){
                     switch (mapData){
-                        case 13:
+                        case 3:
                             Enemy enemy = new Enemy();
-                            enemy.getPosition().set(tileX * 32, tileY * 32 + 32);
-//                            enemy.setRenderer(ImageRenderer.create("assets/image/platform/blueSquare.png"));
+                            enemy.getPosition().set(tileX * 32, tileY * 32);
                             GameObject.add(enemy);
                             break;
+                        case 4:
+                            SeaPlatform seaPlatform = new SeaPlatform();
+                            seaPlatform.getPosition().set(tileX*32,tileY*32);
+                            GameObject.add(seaPlatform);
+                            break;
                         default:
-//                            Platform platform = Platform.create(mapData);
-                            Platform platform = new Platform();
-                            platform.setRenderer(ImageRenderer.create("assets/image/platform/tile1.png"));
-                            platform.getPosition().set(tileX * 32, tileY * 32 + 32);
+                            Platform platform = Platform.create(mapData);
+                            platform.getPosition().set(tileX * 32, tileY * 32);
                             GameObject.add(platform);
                             break;
 

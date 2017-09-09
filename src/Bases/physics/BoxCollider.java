@@ -54,6 +54,12 @@ public class BoxCollider extends GameObject {
                 this.right() >= left &&
                 this.left() <= right;
     }
+    public boolean intersectsheight(Vector2D center, float height){
+        float top = center.y - height / 2;
+        float bottom = center.y + height / 2;
+        return this.bottom() >= top &&
+                this.top() <= bottom;
+    }
     public boolean intersectsCircle(CircleCollider other){
         Vector2D M = new Vector2D(0,0);
         if(other.getPosition().y <= top()){

@@ -9,13 +9,7 @@ import tklibs.SpriteUtils;
 import java.awt.*;
 
 public class PlayerAnimator implements Renderer {
-    private Animation leftAnimation = new Animation(
-            SpriteUtils.loadImage("assets/images/players/left/0.png"),
-            SpriteUtils.loadImage("assets/images/players/left/1.png"),
-            SpriteUtils.loadImage("assets/images/players/left/2.png"),
-            SpriteUtils.loadImage("assets/images/players/left/3.png"),
-            SpriteUtils.loadImage("assets/images/players/left/4.png"),
-            SpriteUtils.loadImage("assets/images/players/left/5.png")
+    private Animation jump = new Animation(
     );
     private Animation rightAnimation = new Animation(
             SpriteUtils.loadImage("assets/images/players/right/0.png"),
@@ -38,7 +32,7 @@ public class PlayerAnimator implements Renderer {
     public void Update(Player player){
         Vector2D velocity = player.getVelocity();
         if(velocity.x < 0){
-            currentAnimation = leftAnimation;
+            currentAnimation = jump;
         }
         if(velocity.x > 0){
             currentAnimation = rightAnimation;
@@ -51,5 +45,11 @@ public class PlayerAnimator implements Renderer {
         currentAnimation.render(g2d, position);
     }
 
+    public Animation getCurrentAnimation() {
+        return currentAnimation;
+    }
 
+    public void setCurrentAnimation(Animation currentAnimation) {
+        this.currentAnimation = currentAnimation;
+    }
 }

@@ -13,7 +13,7 @@ import tklibs.SpriteUtils;
 import static java.lang.Math.*;
 
 public class PlayerSpell extends GameObject implements PhysicsBody {
-    private static final float SPEED = -10 ;
+    private static final float SPEED = 20 ;
     private BoxCollider boxCollider;
     private int damage;
     private float typeBullet;

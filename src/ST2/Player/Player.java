@@ -39,13 +39,13 @@ public class Player extends GameObject implements PhysicsBody {
 
     public Player() {
         super();
-        this.boxCollider = new BoxCollider(10,10);
+        this.boxCollider = new BoxCollider(30,20);
         renderer = new ImageRenderer(SpriteUtils.loadImage("assets/image/Player/Player.png"));
         velocity = new Vector2D(200, 0);
         Gravity =0.5f;
         left = false;
         leftLock = new FrameCounter(20);
-        SPEED = 2;
+        SPEED = 4;
         HP = 10;
         coolDownCounter = new FrameCounter(20);
         typeBullet = 2;
@@ -59,6 +59,9 @@ public class Player extends GameObject implements PhysicsBody {
         hitEnemy();
         hitEnemyBullet();
         if(this.getHP()<=0){
+            this.isActive = false;
+        }
+        if(this.getPosition().y > 600){
             this.isActive = false;
         }
         shoot();
@@ -102,11 +105,16 @@ public class Player extends GameObject implements PhysicsBody {
     private void jump() {
         if(InputManager.instance.upPressed){
             if(Physics.collideWith(screenPosition.add(0,Math.signum(velocity.y)),boxCollider.getWidth(),boxCollider.getHeight(),Platform.class)!=null)
-                velocity.y = -15f;
-            typeBullet = -0.75f;
+                velocity.y = -12f;
+            typeBullet = 0.15f;
         }
         else {
-            typeBullet = 1;
+            typeBullet = 0;
+        }
+        if(InputManager.instance.downPressed){
+            Gravity = 1;
+        }else {
+            Gravity = 0.5f;
         }
     }
 

@@ -24,7 +24,7 @@ public class Enemy extends GameObject implements PhysicsBody {
     public Enemy() {
         super();
         renderer = new Animation(
-                SpriteUtils.loadImage("assets/image/platform/blueSquare.png")
+                SpriteUtils.loadImage("assets/image/yellow_square.png")
         );
 
         this.boxCollider = new BoxCollider(100, 100);

@@ -33,6 +33,17 @@ public class Physics {
 
         return null;
     }
+    public static <T extends PhysicsBody> T collideWithy(Vector2D center, float height, Class<T> classz){
+        for(PhysicsBody body : bodies) {
+            if (body.isActive()) {
+                if (body.getClass().equals(classz) && body.getBoxCollider().intersectsheight(center, height)) {
+                    return (T) body;
+                }
+            }
+        }
+
+        return null;
+    }
 
     // TODO: collide with many
 
