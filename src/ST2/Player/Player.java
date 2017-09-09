@@ -9,12 +9,17 @@ import Bases.physics.Physics;
 import Bases.physics.PhysicsBody;
 import Bases.pools.GameObjectPool;
 import Bases.renderers.ImageRenderer;
+import Bases.specialPool.SpecialPool;
 import ST2.Enemy.Enemy;
 import ST2.Enemy.EnemyBullet;
 import ST2.InputManager.InputManager;
+import ST2.SpecialObject.StateMachine;
 import ST2.platform.Platform;
 import ST2.platform.SeaPlatform;
 import tklibs.SpriteUtils;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 
 public class Player extends GameObject implements PhysicsBody {
@@ -29,10 +34,14 @@ public class Player extends GameObject implements PhysicsBody {
     private float SPEED;
     private int HP;
     private float typeBullet;
+    StateMachine stateMachine = null;
 
     private static Player instance;
     private boolean spellLock;
     private FrameCounter coolDownCounter;
+    private Vector2D nextPosition = Vector2D.ZERO;
+    private ArrayList<Integer> comboList;
+    private boolean unlockMove = true;
 
     public static Player getInstance() {
         return instance;
@@ -48,6 +57,7 @@ public class Player extends GameObject implements PhysicsBody {
         leftLock = new FrameCounter(20);
         SPEED = 4;
         HP = 10;
+        unlockMove = true;
         coolDownCounter = new FrameCounter(20);
         typeBullet = 2;
 
@@ -56,6 +66,7 @@ public class Player extends GameObject implements PhysicsBody {
     @Override
     public void run(Vector2D parentPosition) {
         super.run(parentPosition);
+        hitSpecialObject();
         updatePhysics();
         hitEnemy();
         hitEnemyBullet();
@@ -64,6 +75,58 @@ public class Player extends GameObject implements PhysicsBody {
         }
         drowningSea();
         shoot();
+    }
+
+    private void hitSpecialObject() {
+        for (int i=0; i<=5; ++i) {
+            SpecialPool specialPool = Physics.collideWithSpecial(screenPosition, boxCollider.getWidth(), boxCollider.getHeight(), SpecialPool.class, i);
+            if (specialPool != null) {
+                if (i < 5) {
+                    if (i==0) {
+                        createRandomCombo(1);
+                        stateMachine = new StateMachine();
+                        stateMachine.load(comboList);
+                        this.screenPosition = specialPool.getScreenPosition();
+                        lockMove();
+                        nextPosition = specialPool.getNextPosition();
+                    }
+                    else {
+                        if (i == 1) {
+                            stateMachine.setComboFailed();
+                            if (!stateMachine.isComboFailed())
+                                nextPosition = specialPool.getNextPosition();
+                        }
+                        else nextPosition = specialPool.getNextPosition();
+                    }
+                }
+                else {
+                    stateMachine = null;
+                    this.screenPosition = specialPool.getScreenPosition();
+                    velocity = new Vector2D(SPEED, Gravity);
+                    nextPosition = Vector2D.ZERO;
+                    unlockMove();
+                }
+            }
+        }
+    }
+    private void createRandomCombo(int hardLevel) {
+        comboList.clear();
+        for (int i=0; i<=hardLevel; ++i){
+            Random random = new Random();
+            comboList.add(random.nextInt(4)+37);
+        }
+    }
+
+    private void unlockMove() {
+        unlockMove = true;
+    }
+
+    private void moveToNextPoint(Vector2D nextPosition) {
+        velocity = nextPosition.subtract(screenPosition).normalize().multiply(SPEED);
+    }
+
+    private void lockMove() {
+        unlockMove = false;
     }
 
     private void shoot() {
@@ -89,15 +152,14 @@ public class Player extends GameObject implements PhysicsBody {
     }
 
     private void updatePhysics(){
-        velocity.y += Gravity;
-        velocity.x =  SPEED;
-        jump();
+        if (unlockMove) {
+            velocity.y += Gravity;
+            velocity.x = SPEED;
+            jump();
+        }
+        else moveToNextPoint(nextPosition);
         updateVerticalPhysics();
         updateHorizontalPhysics();
-
-//        if (contraints != null) {
-//            contraints.make(position);
-//        }
     }
 
 

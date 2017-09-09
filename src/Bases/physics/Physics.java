@@ -1,6 +1,8 @@
 package Bases.physics;
 
 import Bases.Vector2D;
+import Bases.specialPool.SpecialPool;
+import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil;
 
 import java.util.Vector;
 
@@ -33,17 +35,6 @@ public class Physics {
 
         return null;
     }
-    public static <T extends PhysicsBody> T collideWithy(Vector2D center, float height, Class<T> classz){
-        for(PhysicsBody body : bodies) {
-            if (body.isActive()) {
-                if (body.getClass().equals(classz) && body.getBoxCollider().intersectsheight(center, height)) {
-                    return (T) body;
-                }
-            }
-        }
-
-        return null;
-    }
 
     // TODO: collide with many
 
@@ -54,4 +45,18 @@ public class Physics {
     public static void clearAll() {
         bodies.clear();
     }
+
+    public static SpecialPool collideWithSpecial(Vector2D screenPosition, float width, float height, Class<SpecialPool> specialPoolClass, int type) {
+        for(PhysicsBody body : bodies) {
+            if (body.getClass().equals(specialPoolClass)) {
+                SpecialPool specialPool = (SpecialPool) body;
+                if (specialPool.getBoxCollider().intersects(screenPosition, width, height) && specialPool.type == type) {
+                    return specialPool;
+                }
+            }
+        }
+        return null;
+    }
+
+
 }

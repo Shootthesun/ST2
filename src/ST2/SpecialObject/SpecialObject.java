@@ -7,23 +7,40 @@ import ST2.ViewCam;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class SpecialObject extends GameObject {
     
     private int waitComboList;
-    private int comboList[];
-    private ArrayList <Vector2D> successPosition;
-    private ArrayList <Vector2D> failedPosition;
+    private ArrayList <Integer> comboList;
+    private ArrayList <Vector2D> sequencePosition;
     private StateMachine stateMachine;
+    private Vector2D nextPosition;
+
     public SpecialObject() {
 
     }
 
-    public void init(int waitComboList, int comboList[], ArrayList <Vector2D> successPosition, ArrayList <Vector2D> failedPosition){
+    public void init(int waitComboList, int hardLevel, Vector2D nextPosition){
         this.waitComboList = waitComboList;
-        this.comboList = comboList;
-        this.successPosition = successPosition;
-        this.failedPosition = failedPosition;
+        createRandomCombo(hardLevel);
+        this.nextPosition = nextPosition;
+    }
+
+    private void createRandomCombo(int hardLevel) {
+        for (int i=0; i<=hardLevel; ++i){
+            Random random = new Random();
+            switch (random.nextInt(4)){
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+        }
     }
 
     @Override
@@ -31,21 +48,25 @@ public class SpecialObject extends GameObject {
         super.run(parentPosition);
         stateMachine.load(comboList);
         this.addAction(new WaitAction(waitComboList));
-        if (stateMachine.isComboFailed()){
-            PlayerMoveTo(successPosition);
+//        if (stateMachine.isComboFailed()){
+        if (true){
+            PlayerMoveTo(sequencePosition);
         }
-        else
-            PlayerMoveTo(failedPosition);
     }
 
-    private void PlayerMoveTo(ArrayList<Vector2D> successPosition) {
+    private void PlayerMoveTo(ArrayList<Vector2D> sequencePosition) {
+        if (sequencePosition == null){
 
+        }
+        else{
+
+        }
     }
 
     @Override
     public void render(Graphics2D g2d, ViewCam viewCam) {
         super.render(g2d, viewCam);
-        stateMachine.render();
+//        stateMachine.render();
     }
 }
 
