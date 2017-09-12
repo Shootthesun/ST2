@@ -64,7 +64,7 @@ public class Player extends GameObject implements PhysicsBody {
         left = false;
         leftLock = new FrameCounter(20);
         SPEED = 6;
-        HP = 1000;
+        HP = 20;
         unlockMove = true;
         coolDownCounter = new FrameCounter(20);
         typeBullet = 2;
@@ -113,7 +113,7 @@ public class Player extends GameObject implements PhysicsBody {
                             stateMachine.setComboFailed();
                             if (!stateMachine.isComboFailed()) {
                                 nextPosition = specialPool.getNextPosition();
-                                SPEED2 = 1.5f;
+                                SPEED2 = 1.9f;
                             }
                             else {
                                 unlockMove();

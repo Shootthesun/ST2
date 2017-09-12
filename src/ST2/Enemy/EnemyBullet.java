@@ -15,7 +15,7 @@ public class EnemyBullet extends GameObject implements PhysicsBody {
 
     public  EnemyBullet(){
         super();
-        boxCollider = new BoxCollider(12,12);
+        boxCollider = new BoxCollider(36,23);
         velocity = new Vector2D();
         this.children.add(boxCollider);
     }

@@ -1,6 +1,7 @@
 package ST2.Enemy;
 
 
+import Bases.FrameCounter;
 import Bases.GameObject;
 import Bases.Vector2D;
 import Bases.actions.Action;
@@ -19,29 +20,52 @@ public class Enemy extends GameObject implements PhysicsBody {
     private BoxCollider boxCollider;
     private final static int damage = 2;
     private float distance;
-    private boolean unlockAction;
+    private boolean animationOn;
+    private FrameCounter unlockAction;
+    private Animation animation1;
+    private Animation animation2;
 
     public Enemy() {
         super();
-        renderer = new Animation(
-                SpriteUtils.loadImage("assets/image/yellow_square.png")
+        animationOn = false;
+        animation1 = new Animation(
+                SpriteUtils.loadImage("assets/image/enemies/1x.png")
         );
+        animation2 = new Animation(
+                SpriteUtils.loadImage("assets/image/enemies/1x.png"),
+                SpriteUtils.loadImage("assets/image/enemies/2x.png"),
+                SpriteUtils.loadImage("assets/image/enemies/3x.png"),
+                SpriteUtils.loadImage("assets/image/enemies/4x.png")
+        );
+        renderer = animation1;
 
         this.boxCollider = new BoxCollider(100, 100);
         this.children.add(boxCollider);
-        unlockAction = true;
+        unlockAction = new FrameCounter(50);
 
     }
 
     private void configAction() {
+        Action render = new Action() {
+            @Override
+            public boolean run(GameObject owner) {
+                renderer = animation2;
+                return true;
+            }
+
+            @Override
+            public void reset() {
+                renderer = animation1;
+            }
+        };
         Action shootAction = new Action() {
             @Override
             public boolean run(GameObject owner) {
                 EnemyBullet enemyBullet = GameObjectPool.recycle(EnemyBullet.class);
-                enemyBullet.getPosition().set(owner.getPosition());
-                enemyBullet.setRenderer(ImageRenderer.create("assets/image/bullets/cyan.png"));
+                enemyBullet.getPosition().set(owner.getPosition().add(-30,-12));
+                enemyBullet.setRenderer(ImageRenderer.create("assets/image/enemies/5x.png"));
                 enemyBullet.getVelocity().set(
-                        direction(owner.getPosition(), Player.getInstance().getPosition())
+                        -3,0
                 );
 
                 return true;
@@ -53,7 +77,8 @@ public class Enemy extends GameObject implements PhysicsBody {
             }
         };
         Action action = new SequenceAction(
-                new WaitAction(5),
+                render,
+                new WaitAction(90),
                 shootAction
 
         );
@@ -69,10 +94,12 @@ public class Enemy extends GameObject implements PhysicsBody {
     public void run(Vector2D parentPosition) {
         super.run(parentPosition);
         distance = this.getPosition().x - Player.getInstance().getPosition().x;
-        if(distance >0 && distance < 300 && unlockAction) {
+        if(distance >0 && distance < 1000 && unlockAction.run()) {
             configAction();
-            unlockAction = false;
+            unlockAction.reset();
+
         }
+
 
 
     }
