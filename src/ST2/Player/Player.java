@@ -64,7 +64,7 @@ public class Player extends GameObject implements PhysicsBody {
         left = false;
         leftLock = new FrameCounter(20);
         SPEED = 6;
-        HP = 10;
+        HP = 1000;
         unlockMove = true;
         coolDownCounter = new FrameCounter(20);
         typeBullet = 2;
