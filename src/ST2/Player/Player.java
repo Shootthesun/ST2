@@ -189,7 +189,7 @@ public class Player extends GameObject implements PhysicsBody {
     private void jump() {
         if(InputManager.instance.upPressed && !isjumping){
             if(Physics.collideWith(screenPosition.add(0,Math.signum(velocity.y)),boxCollider.getWidth(),boxCollider.getHeight(),Platform.class)!=null) {
-                velocity.y = -18f;
+                velocity.y = -14f;
                 isjumping = true;
             }
         }

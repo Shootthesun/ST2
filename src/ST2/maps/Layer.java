@@ -43,37 +43,42 @@ public class Layer {
                             enemy.getPosition().set(tileX * 32, tileY * 32);
                             GameObject.add(enemy);
                             break;
-                        case 4:
+                        case 2:
                             SeaPlatform seaPlatform = new SeaPlatform();
                             seaPlatform.getPosition().set(tileX*32,tileY*32);
                             GameObject.add(seaPlatform);
                             break;
-                        case 5:
+                        case 16:
+                            Enemy pike = new Enemy();
+                            pike.getPosition().set(tileX * 32, tileY * 32);
+                            GameObject.add(pike);
+                            break;
+                        case 20:
                             specialPool.type = 0;
                             SpecialPool.specialPools.get(0).add(specialPool);
                             GameObject.add(specialPool);
                             break;
-                        case 9:
+                        case 40:
                             specialPool.type = 1;
                             SpecialPool.specialPools.get(1).add(specialPool);
                             GameObject.add(specialPool);
                             break;
-                        case 13:
+                        case 24:
                             specialPool.type = 2;
                             SpecialPool.specialPools.get(2).add(specialPool);
                             GameObject.add(specialPool);
                             break;
-                        case 17:
+                        case 28:
                             specialPool.type = 3;
                             SpecialPool.specialPools.get(3).add(specialPool);
                             GameObject.add(specialPool);
                             break;
-                        case 21:
+                        case 32:
                             specialPool.type = 4;
                             SpecialPool.specialPools.get(4).add(specialPool);
                             GameObject.add(specialPool);
                             break;
-                        case 25:
+                        case 36:
                             specialPool.type = 5;
                             SpecialPool.specialPools.get(5).add(specialPool);
                             GameObject.add(specialPool);
