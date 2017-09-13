@@ -4,6 +4,7 @@ import Bases.Constraints;
 import Bases.FrameCounter;
 import Bases.GameObject;
 import Bases.Vector2D;
+import Bases.dusting.Dusting;
 import Bases.physics.BoxCollider;
 import Bases.physics.Physics;
 import Bases.physics.PhysicsBody;
@@ -17,6 +18,7 @@ import ST2.Scenes.GameOverScene;
 import ST2.Scenes.SceneManager;
 import ST2.SpecialObject.StateMachine;
 import ST2.ViewCam;
+import ST2.explosion.Explosion;
 import ST2.platform.Platform;
 import ST2.platform.SeaPlatform;
 import tklibs.SpriteUtils;
@@ -183,6 +185,10 @@ public class Player extends GameObject implements PhysicsBody {
         else moveToNextPoint(nextPosition);
         updateVerticalPhysics();
         updateHorizontalPhysics();
+        Dusting dusting = new Dusting();
+        dusting.getPosition().set(this.position);
+        dusting.getPosition().set(this.screenPosition.add(0,30));
+        GameObject.add(dusting);
     }
 
 
