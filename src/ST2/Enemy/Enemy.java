@@ -13,6 +13,7 @@ import Bases.pools.GameObjectPool;
 import Bases.renderers.Animation;
 import Bases.renderers.ImageRenderer;
 import ST2.Player.Player;
+import ST2.explosion.Explosion;
 import tklibs.SpriteUtils;
 
 public class Enemy extends GameObject implements PhysicsBody {
@@ -109,5 +110,11 @@ public class Enemy extends GameObject implements PhysicsBody {
 
     public static int getDamage() {
         return damage;
+    }
+    public void  getHit(){
+        Explosion explosion = new Explosion();
+        explosion.getPosition().set(this.position);
+        explosion.getPosition().set(this.screenPosition);
+        GameObject.add(explosion);
     }
 }

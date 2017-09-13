@@ -85,4 +85,5 @@ public class Animation implements Renderer {
             }
         }
     }
+
 }

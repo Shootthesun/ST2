@@ -17,6 +17,7 @@ public class Layer {
     private List<Integer> data;
     private int height;
     private int width;
+//    private int countLoop = 0;
 
     @Override
     public String toString() {
@@ -28,6 +29,10 @@ public class Layer {
     }
 
     public void generate() {
+//        countLoop ++;
+//        if(countLoop > width - 1500){
+//            countLoop = width - 1500;
+//        }
         for(int i =0; i <= 5; i++){
             SpecialPool.specialPools.add(new Vector<>());
         }

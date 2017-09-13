@@ -54,6 +54,7 @@ public class PlayerSpell extends GameObject implements PhysicsBody {
         if(enemy != null){
             enemy.setActive(false);
             this.isActive = false;
+            enemy.getHit();
         }
     }
 
