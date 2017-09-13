@@ -40,7 +40,7 @@ public class Enemy extends GameObject implements PhysicsBody {
         );
         renderer = animation1;
 
-        this.boxCollider = new BoxCollider(100, 100);
+        this.boxCollider = new BoxCollider(20, 130);
         this.children.add(boxCollider);
         unlockAction = new FrameCounter(50);
 

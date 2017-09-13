@@ -14,15 +14,20 @@ public class Explosion extends GameObject {
     Animation animation;
     public Explosion(){
         super();
-        animation = new Animation(2,true,false,
-//                SpriteUtils.loadImage("assets/images/enemies/explosion/0.png"),
-                SpriteUtils.loadImage("assets/image/enemies/explosion/1.png"),
-//                SpriteUtils.loadImage("assets/images/enemies/explosion/2.png"),
-                SpriteUtils.loadImage("assets/image/enemies/explosion/3.png"),
-//                SpriteUtils.loadImage("assets/images/enemies/explosion/4.png"),
-                SpriteUtils.loadImage("assets/image/enemies/explosion/5.png"),
-//                SpriteUtils.loadImage("assets/images/enemies/explosion/6.png"),
-                SpriteUtils.loadImage("assets/image/enemies/explosion/7.png")
+        animation = new Animation(1,true,false,
+                SpriteUtils.loadImage("assets/iceExplosion/C08spW51.png"),
+                SpriteUtils.loadImage("assets/iceExplosion/C08spW52.png"),
+                SpriteUtils.loadImage("assets/iceExplosion/C08spW53.png"),
+                SpriteUtils.loadImage("assets/iceExplosion/C08spW54.png"),
+                SpriteUtils.loadImage("assets/iceExplosion/C08spW55.png"),
+                SpriteUtils.loadImage("assets/iceExplosion/C08spW56.png"),
+                SpriteUtils.loadImage("assets/iceExplosion/C08spW57.png"),
+                SpriteUtils.loadImage("assets/iceExplosion/C08spW58.png"),
+                SpriteUtils.loadImage("assets/iceExplosion/C08spW59.png"),
+                SpriteUtils.loadImage("assets/iceExplosion/C08spW60.png"),
+                SpriteUtils.loadImage("assets/iceExplosion/C08spW61.png"),
+                SpriteUtils.loadImage("assets/iceExplosion/C08spW62.png"),
+                SpriteUtils.loadImage("assets/iceExplosion/C08spW63.png")
         );
         this.renderer = animation;
     }

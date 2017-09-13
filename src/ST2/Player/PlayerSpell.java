@@ -27,7 +27,15 @@ public class PlayerSpell extends GameObject implements PhysicsBody {
         this.typeBullet = 0;
         damage = 10;
         renderer = new Animation(1,false,false,
-                SpriteUtils.loadImage("assets/image/bullets/green.png")
+                SpriteUtils.loadImage("assets/iceArrow20/1.png"),
+                SpriteUtils.loadImage("assets/iceArrow20/2.png"),
+                SpriteUtils.loadImage("assets/iceArrow20/3.png"),
+                SpriteUtils.loadImage("assets/iceArrow20/4.png"),
+                SpriteUtils.loadImage("assets/iceArrow20/5.png"),
+                SpriteUtils.loadImage("assets/iceArrow20/6.png"),
+                SpriteUtils.loadImage("assets/iceArrow20/7.png"),
+                SpriteUtils.loadImage("assets/iceArrow20/8.png"),
+                SpriteUtils.loadImage("assets/iceArrow20/9.png")
                 ) ;
         boxCollider = new BoxCollider(20,20);
         children.add(boxCollider);

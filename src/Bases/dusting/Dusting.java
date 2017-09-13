@@ -12,7 +12,7 @@ public class Dusting extends GameObject{
     Animation animation;
     public Dusting(){
         super();
-        animation = new Animation(2,true,false,
+        animation = new Animation(4,true,false,
                 SpriteUtils.loadImage("assets/image/enemies/explosion/1.png"),
                 SpriteUtils.loadImage("assets/image/enemies/explosion/3.png"),
                 SpriteUtils.loadImage("assets/image/enemies/explosion/5.png"),

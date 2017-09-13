@@ -7,7 +7,9 @@ import Bases.pools.GameObjectPool;
 import Bases.renderers.Renderer;
 import Bases.specialPool.SpecialPool;
 import ST2.Enemy.Enemy;
+import ST2.Player.Player;
 import ST2.ViewCam;
+import ST2.platform.Platform;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -80,7 +82,15 @@ public class GameObject {
 //            System.out.println(renderer);
 //        }
         if (renderer != null) {
-            renderer.render(g2d, viewCam.translate(this.screenPosition));
+            if (this instanceof Platform){
+                if (Player.getInstance() != null)
+                    if (Player.getInstance().position.distance(this.position) <= 1000){
+                    renderer.render(g2d,viewCam.translate(this.screenPosition));
+                }
+            }
+
+            else
+                renderer.render(g2d, viewCam.translate(this.screenPosition));
         }
 
         for (GameObject child: children) {

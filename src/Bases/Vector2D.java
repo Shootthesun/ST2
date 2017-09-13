@@ -91,4 +91,9 @@ public class Vector2D {
                 ", y=" + y +
                 '}';
     }
+
+    public float distance(Vector2D other) {
+        return (float) Math.sqrt((this.x - other.x) * (this.x - other.x) + (this.y - other.y) * (this.y - other.y));
+
+    }
 }

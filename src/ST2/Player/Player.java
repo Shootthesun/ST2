@@ -58,7 +58,7 @@ public class Player extends GameObject implements PhysicsBody {
 
     public Player() {
         super();
-        this.boxCollider = new BoxCollider(40,80);
+        this.boxCollider = new BoxCollider(20,60);
         animator = new PlayerAnimator();
         renderer = animator;
         velocity = new Vector2D(200, 0);
@@ -68,7 +68,7 @@ public class Player extends GameObject implements PhysicsBody {
         SPEED = 6;
         HP = 20;
         unlockMove = true;
-        coolDownCounter = new FrameCounter(20);
+        coolDownCounter = new FrameCounter(10);
         typeBullet = 2;
         isjumping = true;
 
@@ -108,7 +108,8 @@ public class Player extends GameObject implements PhysicsBody {
 //                        this.screenPosition = specialPool.getScreenPosition();
                         lockMove();
                         SPEED2 = 1;
-                        nextPosition = specialPool.getNextPosition();
+                        nextPosition =
+                                specialPool.getNextPosition();
                     }
                     else {
                         if (i == 1) {
@@ -156,7 +157,8 @@ public class Player extends GameObject implements PhysicsBody {
 
     private void shoot() {
         if (inputManager.xPressed && !spellLock) {
-            creatSpell(0,0,typeBullet);
+//            creatSpell(0,0,typeBullet);
+            creatSpell(0,0,0);
             spellLock = true;
             coolDownCounter.reset();
         }
@@ -188,7 +190,7 @@ public class Player extends GameObject implements PhysicsBody {
         Dusting dusting = new Dusting();
         dusting.getPosition().set(this.position);
         dusting.getPosition().set(this.screenPosition.add(0,30));
-        GameObject.add(dusting);
+//        GameObject.add(dusting);
     }
 
 

@@ -82,19 +82,6 @@ public class Platform extends GameObject implements PhysicsBody {
                 platform.renderer = new ImageRenderer(
                         SpriteUtils.loadImage( "assets/map/map/Tilesresize/4_Fotor.png"));
                 break;
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
         return platform;
     }

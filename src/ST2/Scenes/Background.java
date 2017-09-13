@@ -17,9 +17,9 @@ public class Background extends GameObject implements PhysicsBody {
     public Background() {
         super();
         this.imageRenderer = new ImageRenderer(
-                SpriteUtils.loadImage("assets/image/Background/Background.png")
+                SpriteUtils.loadImage("assets/FinalMap.png")
         );
-        this.imageRenderer.getAnchor().set(0.2f, 1);
+        this.imageRenderer.getAnchor().set(0, 0);
         this.position.set(0, Settings.instance.getGamePlayHeight());
         this.imageHeight = imageRenderer.image.getHeight();
         this.imageWidth = imageRenderer.image.getWidth();
