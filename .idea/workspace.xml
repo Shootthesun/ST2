@@ -1,38 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="406f4549-f013-4eb2-acbc-77b1663c53f5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/FinalMap.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/map/map/Tilesresize/mid.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/map/map/Tilesresize/mid_platform.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/map/map/Tilesresize/13_Fotor.png" afterPath="$PROJECT_DIR$/assets/map/map/Tilesresize/13_Fotor.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/map/map/Tilesresize/14_Fotor.png" afterPath="$PROJECT_DIR$/assets/map/map/Tilesresize/14_Fotor.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/map/map/Tilesresize/15_Fotor.png" afterPath="$PROJECT_DIR$/assets/map/map/Tilesresize/15_Fotor.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/map/map/Tilesresize/16_Fotor.png" afterPath="$PROJECT_DIR$/assets/map/map/Tilesresize/16_Fotor.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/map/map/Tilesresize/1_Fotor.png" afterPath="$PROJECT_DIR$/assets/map/map/Tilesresize/1_Fotor.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/map/map/Tilesresize/3_Fotor.png" afterPath="$PROJECT_DIR$/assets/map/map/Tilesresize/3_Fotor.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/map/map/Tilesresize/4_Fotor.png" afterPath="$PROJECT_DIR$/assets/map/map/Tilesresize/4_Fotor.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/map/map/Tilesresize/6_Fotor.png" afterPath="$PROJECT_DIR$/assets/map/map/Tilesresize/6_Fotor.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/map/map/Tilesresize/9_Fotor.png" afterPath="$PROJECT_DIR$/assets/map/map/Tilesresize/9_Fotor.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ST2/Bases/dusting/Dusting.class" afterPath="$PROJECT_DIR$/out/production/ST2/Bases/dusting/Dusting.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ST2/ST2/Enemy/Enemy.class" afterPath="$PROJECT_DIR$/out/production/ST2/ST2/Enemy/Enemy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ST2/ST2/Player/Player.class" afterPath="$PROJECT_DIR$/out/production/ST2/ST2/Player/Player.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ST2/ST2/Player/PlayerSpell.class" afterPath="$PROJECT_DIR$/out/production/ST2/ST2/Player/PlayerSpell.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ST2/ST2/Scenes/Background.class" afterPath="$PROJECT_DIR$/out/production/ST2/ST2/Scenes/Background.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ST2/ST2/Scenes/Level1Scene.class" afterPath="$PROJECT_DIR$/out/production/ST2/ST2/Scenes/Level1Scene.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ST2/ST2/explosion/Explosion.class" afterPath="$PROJECT_DIR$/out/production/ST2/ST2/explosion/Explosion.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ST2/ST2/platform/Platform.class" afterPath="$PROJECT_DIR$/out/production/ST2/ST2/platform/Platform.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Bases/GameObject.java" afterPath="$PROJECT_DIR$/src/Bases/GameObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Bases/Vector2D.java" afterPath="$PROJECT_DIR$/src/Bases/Vector2D.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Bases/dusting/Dusting.java" afterPath="$PROJECT_DIR$/src/Bases/dusting/Dusting.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ST2/Enemy/Enemy.java" afterPath="$PROJECT_DIR$/src/ST2/Enemy/Enemy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ST2/Player/Player.java" afterPath="$PROJECT_DIR$/src/ST2/Player/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ST2/Player/PlayerSpell.java" afterPath="$PROJECT_DIR$/src/ST2/Player/PlayerSpell.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ST2/Scenes/Background.java" afterPath="$PROJECT_DIR$/src/ST2/Scenes/Background.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ST2/explosion/Explosion.java" afterPath="$PROJECT_DIR$/src/ST2/explosion/Explosion.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ST2/platform/Platform.java" afterPath="$PROJECT_DIR$/src/ST2/platform/Platform.java" />
-    </list>
+    <list default="true" id="406f4549-f013-4eb2-acbc-77b1663c53f5" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,8 +15,8 @@
       <file leaf-file-name="Layer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ST2/maps/Layer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="91" column="61" lean-forward="true" selection-start-line="91" selection-start-column="61" selection-end-line="91" selection-end-column="61" />
+            <state relative-caret-position="1360">
+              <caret line="91" column="61" lean-forward="false" selection-start-line="91" selection-start-column="61" selection-end-line="91" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -56,8 +25,8 @@
       <file leaf-file-name="Platform.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ST2/platform/Platform.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="55" column="7" lean-forward="true" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
+            <state relative-caret-position="765">
+              <caret line="55" column="7" lean-forward="false" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -67,7 +36,7 @@
         <entry file="file://$PROJECT_DIR$/src/ST2/Scenes/Background.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="20" column="10" lean-forward="true" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+              <caret line="20" column="10" lean-forward="false" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -77,7 +46,7 @@
         <entry file="file://$PROJECT_DIR$/src/ST2/Scenes/Level1Scene.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+              <caret line="18" column="7" lean-forward="false" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -86,8 +55,8 @@
       <file leaf-file-name="Dusting.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Bases/dusting/Dusting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+            <state relative-caret-position="153">
+              <caret line="15" column="10" lean-forward="false" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,8 +67,8 @@
       <file leaf-file-name="GameObject.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Bases/GameObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1241">
-              <caret line="86" column="77" lean-forward="true" selection-start-line="86" selection-start-column="77" selection-end-line="86" selection-end-column="77" />
+            <state relative-caret-position="589">
+              <caret line="86" column="77" lean-forward="false" selection-start-line="86" selection-start-column="77" selection-end-line="86" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -108,8 +77,8 @@
       <file leaf-file-name="Vector2D.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Bases/Vector2D.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="95" column="110" lean-forward="true" selection-start-line="95" selection-start-column="110" selection-end-line="95" selection-end-column="110" />
+            <state relative-caret-position="1275">
+              <caret line="95" column="110" lean-forward="false" selection-start-line="95" selection-start-column="110" selection-end-line="95" selection-end-column="110" />
               <folding />
             </state>
           </provider>
@@ -125,7 +94,7 @@
       <file leaf-file-name="Enemy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ST2/Enemy/Enemy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
+            <state relative-caret-position="493">
               <caret line="42" column="49" lean-forward="false" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
               <folding />
             </state>
@@ -135,8 +104,8 @@
       <file leaf-file-name="PlayerSpell.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ST2/Player/PlayerSpell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="51" column="46" lean-forward="true" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
+            <state relative-caret-position="612">
+              <caret line="51" column="46" lean-forward="false" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
               <folding>
                 <element signature="e#1516#1517#0" expanded="true" />
                 <element signature="e#1560#1561#0" expanded="true" />
@@ -189,7 +158,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="77" />
     <option name="y" value="23" />
     <option name="width" value="1363" />
@@ -210,9 +179,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -302,7 +271,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="RecentsManager">
@@ -448,12 +417,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -475,6 +442,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -752,7 +720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -776,8 +743,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ST2/Player/PlayerSpell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="51" column="46" lean-forward="true" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
+        <state relative-caret-position="612">
+          <caret line="51" column="46" lean-forward="false" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
           <folding>
             <element signature="e#1516#1517#0" expanded="true" />
             <element signature="e#1560#1561#0" expanded="true" />
@@ -792,7 +759,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ST2/Enemy/Enemy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
+        <state relative-caret-position="493">
           <caret line="42" column="49" lean-forward="false" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
           <folding />
         </state>
@@ -800,8 +767,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Bases/dusting/Dusting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+        <state relative-caret-position="153">
+          <caret line="15" column="10" lean-forward="false" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -818,8 +785,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ST2/maps/Layer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="91" column="61" lean-forward="true" selection-start-line="91" selection-start-column="61" selection-end-line="91" selection-end-column="61" />
+        <state relative-caret-position="1360">
+          <caret line="91" column="61" lean-forward="false" selection-start-line="91" selection-start-column="61" selection-end-line="91" selection-end-column="61" />
           <folding />
         </state>
       </provider>
@@ -827,7 +794,7 @@
     <entry file="file://$PROJECT_DIR$/src/ST2/Scenes/Background.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="20" column="10" lean-forward="true" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+          <caret line="20" column="10" lean-forward="false" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -835,31 +802,31 @@
     <entry file="file://$PROJECT_DIR$/src/ST2/Scenes/Level1Scene.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+          <caret line="18" column="7" lean-forward="false" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ST2/platform/Platform.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="55" column="7" lean-forward="true" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
+        <state relative-caret-position="765">
+          <caret line="55" column="7" lean-forward="false" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Bases/Vector2D.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="95" column="110" lean-forward="true" selection-start-line="95" selection-start-column="110" selection-end-line="95" selection-end-column="110" />
+        <state relative-caret-position="1275">
+          <caret line="95" column="110" lean-forward="false" selection-start-line="95" selection-start-column="110" selection-end-line="95" selection-end-column="110" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Bases/GameObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="86" column="77" lean-forward="true" selection-start-line="86" selection-start-column="77" selection-end-line="86" selection-end-column="77" />
+        <state relative-caret-position="589">
+          <caret line="86" column="77" lean-forward="false" selection-start-line="86" selection-start-column="77" selection-end-line="86" selection-end-column="77" />
           <folding />
         </state>
       </provider>
