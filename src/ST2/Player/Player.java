@@ -102,7 +102,7 @@ public class Player extends GameObject implements PhysicsBody {
             if (specialPool != null) {
                 if (i < 5) {
                     if (i==0) {
-                        createRandomCombo(1);
+                        createRandomCombo(2);
                         stateMachine = new StateMachine();
                         stateMachine.load(comboList);
 //                        this.screenPosition = specialPool.getScreenPosition();

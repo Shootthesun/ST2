@@ -30,7 +30,7 @@ public class PlayerAnimator implements Renderer {
             SpriteUtils.loadImage("assets/image/Player/Jump/20170909_210126-1.png"),
             SpriteUtils.loadImage("assets/image/Player/Jump/20170909_205644.png"),
             SpriteUtils.loadImage("assets/image/Player/Jump/20170909_210138.png"));
-    private Animation straightAnimation = new Animation(2,false,false,
+    private Animation straightAnimation = new Animation(3,false,false,
             SpriteUtils.loadImage("assets/image/Player/Run/20170909_223151-1.png"),
             SpriteUtils.loadImage("assets/image/Player/Run/1.png"),
             SpriteUtils.loadImage("assets/image/Player/Run/2.png"),
